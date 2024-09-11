@@ -1,0 +1,11 @@
+{
+  "$schema": "https://wixplosives.github.io/codux-config-schema/codux.config.schema.json",
+  "boardGlobalSetup": "./src/_codux/boards-global-setup.ts",
+  "previewConfiguration": {
+    "environmentVariables": {
+      "NODE_ENV": "dotenv cross-var docker kill %NODE_ENV%",
+      "NEXT_PUBLIC_SUPABASE_URL": "dotenv cross-var docker kill %NEXT_PUBLIC_SUPABASE_URL%",
+      "NEXT_PUBLIC_SUPABASE_ANON_KEY": "dotenv cross-var docker kill %NEXT_PUBLIC_SUPABASE_ANON_KEY%"
+    }
+  }
+}
