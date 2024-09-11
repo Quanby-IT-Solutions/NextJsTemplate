@@ -84,3 +84,6 @@ For any feedback or issues, please submit them through the [GitHub repository](h
 - [Supabase Auth and Next.js App Router](https://github.com/supabase/supabase/tree/master/examples/auth/nextjs)
 
 This template provides a general-purpose approach for setting up a project with Supabase and Next.js, including full authentication, local development setup, and deployment with Vercel.
+
+
+[https://www.genui.com/resources/env-variables-json#:~:text=By%20using%20dotenv%20and%20cross,it%20works%20across%20development%20platforms](https://www.genui.com/resources/env-variables-json#:~:text=By%20using%20dotenv%20and%20cross,it%20works%20across%20development%20platforms)!
