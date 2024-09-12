@@ -1,13 +1,12 @@
-import React from "react";
 import { forgotPasswordAction } from "@/app/actions";
-import Link from "next/link";
-import { SmtpMessage } from "../src/_codux/boards/smtp-message/SmtpMessage";
 import {
   Message,
   FormMessage,
-} from "@/src/_codux/boards/form-message/form-message";
+} from "@/src/_codux/boards/form-message/FormMessage";
 import { Input } from "@/src/_codux/boards/input/Input";
+import { SmtpMessage } from "@/src/_codux/boards/smtp-message/SmtpMessage";
 import { SubmitButton } from "@/src/_codux/boards/submit-button/SubmitButton";
+import { Link } from "lucide-react";
 
 export interface ForgotPasswordProps {
   className?: string;

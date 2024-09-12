@@ -1,9 +1,8 @@
-import React from "react";
 import { signInAction } from "@/app/actions";
 import {
   Message,
   FormMessage,
-} from "@/src/_codux/boards/form-message/form-message";
+} from "@/src/_codux/boards/form-message/FormMessage";
 import { Input } from "@/src/_codux/boards/input/Input";
 import { SubmitButton } from "@/src/_codux/boards/submit-button/SubmitButton";
 import { Link } from "lucide-react";
