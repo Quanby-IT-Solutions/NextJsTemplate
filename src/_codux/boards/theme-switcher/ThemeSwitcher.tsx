@@ -10,7 +10,7 @@ import {
 import { Laptop, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-import { Button } from "../button/button";
+import { Button } from "../button/Button";
 
 const ThemeSwitcher = () => {
   const [mounted, setMounted] = useState(false);

@@ -1,42 +1,16 @@
-import { forgotPasswordAction } from "@/app/actions";
-import Link from "next/link";
-import { SmtpMessage } from "../../../src/_codux/boards/smtp-message/smtp-message";
-import {
-  Message,
-  FormMessage,
-} from "@/src/_codux/boards/form-message/form-message";
-import { Input } from "@/src/_codux/boards/input/input";
-import { SubmitButton } from "@/src/_codux/boards/submit-button/submit-button";
+// app/(auth-pages)/forgot-password/page.tsx
+import React from "react";
+import { ForgotPassword } from "../../../components/ForgotPassword";
+import { Message } from "@/src/_codux/boards/form-message/FormMessage";
 
-export default function ForgotPassword({
+export default function ForgotPasswordPage({
   searchParams,
 }: {
   searchParams: Message;
 }) {
   return (
-    <>
-      <form className="flex-1 flex flex-col w-full gap-2 text-foreground [&>input]:mb-6 min-w-64 max-w-64 mx-auto">
-        <div>
-          <h1 className="text-2xl font-medium">Reset Password</h1>
-          <p className="text-sm text-secondary-foreground">
-            Already have an account?{" "}
-            <Link className="text-primary underline" href="/sign-in">
-              Sign in
-            </Link>
-          </p>
-        </div>
-        <div className="flex flex-col gap-2 [&>input]:mb-3 mt-8">
-          <label htmlFor="email" className="text-sm font-medium">
-            Email
-          </label>
-          <Input name="email" placeholder="you@example.com" required />
-          <SubmitButton formAction={forgotPasswordAction}>
-            Reset Password
-          </SubmitButton>
-          <FormMessage message={searchParams} />
-        </div>
-      </form>
-      <SmtpMessage />
-    </>
+    <div className="container mx-auto">
+      <ForgotPassword searchParams={searchParams} />
+    </div>
   );
 }

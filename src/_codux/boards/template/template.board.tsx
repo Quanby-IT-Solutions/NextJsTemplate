@@ -1,9 +1,9 @@
 import React from "react";
 import { createBoard } from "@wixc3/react-board";
-import NextLogo from "./next-logo";
+import { Template } from "./template";
 
 export default createBoard({
-  name: "NextLogo",
-  Board: () => <NextLogo />,
+  name: "Template",
+  Board: () => <Template />,
   isSnippet: true,
 });

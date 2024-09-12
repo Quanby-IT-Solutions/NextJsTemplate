@@ -1,6 +1,3 @@
-import NextLogo from "../next-logo/next-logo";
-import SupabaseLogo from "../supabase-logo/supabase-logo";
-
 export default function Header() {
   return (
     <div className="flex flex-col gap-16 items-center">
@@ -10,11 +7,11 @@ export default function Header() {
           target="_blank"
           rel="noreferrer"
         >
-          <SupabaseLogo />
+          Mar - Logo
         </a>
         <span className="border-l rotate-45 h-6" />
         <a href="https://nextjs.org/" target="_blank" rel="noreferrer">
-          <NextLogo />
+          Mar - Logo
         </a>
       </div>
       <h1 className="sr-only">Supabase and Next.js Starter Template</h1>

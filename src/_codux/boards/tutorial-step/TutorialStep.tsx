@@ -1,4 +1,4 @@
-import { Checkbox } from "../checkbox/checkbox";
+import { Checkbox } from "../checkbox/Checkbox";
 
 export function TutorialStep({
   title,

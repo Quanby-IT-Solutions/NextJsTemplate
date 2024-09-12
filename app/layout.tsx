@@ -1,12 +1,12 @@
-import { EnvVarWarning } from "@/components/env-var-warning";
-import HeaderAuth from "@/components/header-auth";
 import { hasEnvVars } from "@/utils/supabase/check-env-vars";
 import { GeistSans } from "geist/font/sans";
 import { ThemeProvider } from "next-themes";
 import Link from "next/link";
 import "./globals.css";
-import { ThemeSwitcher } from "@/src/_codux/boards/theme-switcher/theme-switcher";
-import DeployButton from "@/src/_codux/boards/deploy-button/deploy-button";
+import { EnvVarWarning } from "@/components/EnvVarWarning";
+import { UserGreeting } from "@/components/UserGreeting";
+import DeployButton from "@/src/_codux/boards/deploy-button/DeployButton";
+import { ThemeSwitcher } from "@/src/_codux/boards/theme-switcher/ThemeSwitcher";
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -42,7 +42,11 @@ export default function RootLayout({
                       <DeployButton />
                     </div>
                   </div>
-                  {!hasEnvVars ? <EnvVarWarning /> : <HeaderAuth />}
+                  {!hasEnvVars ? (
+                    <EnvVarWarning />
+                  ) : (
+                    <UserGreeting email={"email_here"} />
+                  )}
                 </div>
               </nav>
               <div className="flex flex-col gap-20 max-w-5xl p-5">
