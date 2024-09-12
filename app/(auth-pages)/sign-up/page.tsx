@@ -1,10 +1,12 @@
 import { signUpAction } from "@/app/actions";
-import { FormMessage, Message } from "@/components/form-message";
-import { SubmitButton } from "@/components/submit-button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import Link from "next/link";
-import { SmtpMessage } from "../smtp-message";
+import { SmtpMessage } from "../../../src/_codux/boards/smtp-message/smtp-message";
+import {
+  Message,
+  FormMessage,
+} from "@/src/_codux/boards/form-message/form-message";
+import { Input } from "@/src/_codux/boards/input/input";
+import { SubmitButton } from "@/src/_codux/boards/submit-button/submit-button";
 
 export default function Signup({ searchParams }: { searchParams: Message }) {
   if ("message" in searchParams) {
@@ -26,9 +28,13 @@ export default function Signup({ searchParams }: { searchParams: Message }) {
           </Link>
         </p>
         <div className="flex flex-col gap-2 [&>input]:mb-3 mt-8">
-          <Label htmlFor="email">Email</Label>
+          <label htmlFor="email" className="text-sm font-medium">
+            Email
+          </label>
           <Input name="email" placeholder="you@example.com" required />
-          <Label htmlFor="password">Password</Label>
+          <label htmlFor="password" className="text-sm font-medium">
+            Password
+          </label>
           <Input
             type="password"
             name="password"

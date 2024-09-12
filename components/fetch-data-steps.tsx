@@ -1,5 +1,5 @@
-import { TutorialStep } from "./tutorial-step";
-import { CodeBlock } from "./code-block";
+import { CodeBlock } from "@/src/_codux/boards/code-block/code-block";
+import { TutorialStep } from "@/src/_codux/boards/tutorial-step/tutorial-step";
 
 const create = `create table notes (
   id bigserial primary key,

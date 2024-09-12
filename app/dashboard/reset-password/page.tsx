@@ -1,8 +1,10 @@
 import { resetPasswordAction } from "@/app/actions";
-import { FormMessage, Message } from "@/components/form-message";
-import { SubmitButton } from "@/components/submit-button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import {
+  Message,
+  FormMessage,
+} from "@/src/_codux/boards/form-message/form-message";
+import { Input } from "@/src/_codux/boards/input/input";
+import { SubmitButton } from "@/src/_codux/boards/submit-button/submit-button";
 
 export default async function ResetPassword({
   searchParams,
@@ -15,14 +17,18 @@ export default async function ResetPassword({
       <p className="text-sm text-foreground/60">
         Please enter your new password below.
       </p>
-      <Label htmlFor="password">New password</Label>
+      <label htmlFor="password" className="text-sm font-medium">
+        New password
+      </label>
       <Input
         type="password"
         name="password"
         placeholder="New password"
         required
       />
-      <Label htmlFor="confirmPassword">Confirm password</Label>
+      <label htmlFor="confirmPassword" className="text-sm font-medium">
+        Confirm password
+      </label>
       <Input
         type="password"
         name="confirmPassword"

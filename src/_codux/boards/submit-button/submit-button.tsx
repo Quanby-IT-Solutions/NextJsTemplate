@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@/src/_codux/boards/button/button";
 import { type ComponentProps } from "react";
 import { useFormStatus } from "react-dom";
 
