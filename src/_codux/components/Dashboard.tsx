@@ -6,6 +6,9 @@ import { createClient } from "@/app/utils/supabase/client";
 import { InfoIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Roles from "@/app/utils/user-management/roles";
+import { UserGreeting } from "../boards/user-greeting/UserGreeting";
+import { signOutAction } from "@/app/actions";
+import { Button } from "../boards/button/Button";
 
 export interface DashboardProps {
   className?: string;
@@ -27,7 +30,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ className = "" }) => {
     };
 
     fetchUser();
-  }, []);
+  }, [router, supabase]);
 
   return (
     <div className={`flex-1 w-full flex flex-col gap-12 ${className}`}>
@@ -39,7 +42,14 @@ export const Dashboard: React.FC<DashboardProps> = ({ className = "" }) => {
         </div>
       </div>
       <div className="flex flex-col gap-2 items-start">
-        <h2 className="font-bold text-2xl mb-4">Your user details</h2>
+        <h2 className="font-bold text-2xl mb-4">
+          Your user <UserGreeting email={user?.email || "No email"} /> details
+        </h2>
+        <form action={signOutAction}>
+          <Button type="submit" variant={"outline"}>
+            Sign out
+          </Button>
+        </form>
         {user && (
           <pre className="text-xs font-mono p-3 rounded border max-h-32 overflow-auto">
             {JSON.stringify(user, null, 2)}
