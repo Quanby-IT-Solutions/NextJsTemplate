@@ -1,6 +1,6 @@
 import React from "react";
 import { createBoard } from "@wixc3/react-board";
-import { DropdownMenuSeparator } from "../dropdown-menu/DropdownMenuSeparator";
+import { DropdownMenuSeparator } from "./DropdownMenuSeparator";
 
 export default createBoard({
   name: "DropdownMenuSeparator",

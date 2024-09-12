@@ -1,7 +1,7 @@
 import React from "react";
-import { WarningMessage } from "./WarningMessage";
-import { SignUpButton } from "./SignUpButton";
-import { SignInButton } from "./SignInButton";
+import { SignUpButton } from "../../components/SignUpButton";
+import { SignInButton } from "../../components/SignInButton";
+import { WarningMessage } from "../warning-message/WarningMessage";
 
 export const EnvVarWarning: React.FC = () => (
   <div className="flex gap-4 items-center">

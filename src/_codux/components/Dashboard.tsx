@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { createClient } from "@/utils/supabase/server";
 import { InfoIcon } from "lucide-react";
 import { redirect } from "next/navigation";
-import Roles from "../utils/user-management/roles";
+import Roles from "../../../utils/user-management/roles";
 
 export interface DashboardProps {
   className?: string;

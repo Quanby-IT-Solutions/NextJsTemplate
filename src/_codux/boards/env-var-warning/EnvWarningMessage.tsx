@@ -1,7 +1,7 @@
 import React from "react";
-import { Badge } from "../src/_codux/boards/badge/Badge";
-import { Button } from "../src/_codux/boards/button/Button";
 import Link from "next/link";
+import { Badge } from "../badge/Badge";
+import { Button } from "../button/Button";
 
 export const EnvWarningMessage: React.FC = () => (
   <div className="flex gap-4 items-center">

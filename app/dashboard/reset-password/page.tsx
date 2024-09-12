@@ -1,6 +1,5 @@
-// app/(auth-pages)/reset-password/page.tsx
 import React from "react";
-import { ResetPassword } from "../../../components/ResetPassword";
+import { ResetPassword } from "../../../src/_codux/components/ResetPassword";
 import { Message } from "@/src/_codux/boards/form-message/FormMessage";
 
 export default function ResetPasswordPage({

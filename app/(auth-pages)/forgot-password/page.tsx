@@ -1,6 +1,5 @@
-// app/(auth-pages)/forgot-password/page.tsx
 import React from "react";
-import { ForgotPassword } from "../../../components/ForgotPassword";
+import { ForgotPassword } from "../../../src/_codux/components/ForgotPassword";
 import { Message } from "@/src/_codux/boards/form-message/FormMessage";
 
 export default function ForgotPasswordPage({

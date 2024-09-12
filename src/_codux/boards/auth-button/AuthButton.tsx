@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { createClient } from "@/utils/supabase/server";
 import { hasEnvVars } from "@/utils/supabase/check-env-vars";
-import { EnvWarningMessage } from "@/components/EnvWarningMessage";
-import { SignInButton } from "@/components/SignInButton";
-import { UserGreeting } from "@/components/UserGreeting";
+import { SignInButton } from "../../components/SignInButton";
+import { EnvWarningMessage } from "../env-var-warning/EnvWarningMessage";
+import { UserGreeting } from "../user-greeting/UserGreeting";
 
 export interface AuthButtonProps {
   className?: string;

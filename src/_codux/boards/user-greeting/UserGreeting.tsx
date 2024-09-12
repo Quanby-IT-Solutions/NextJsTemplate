@@ -1,6 +1,6 @@
 import React from "react";
 import { signOutAction } from "@/app/actions";
-import { Button } from "../src/_codux/boards/button/Button";
+import { Button } from "../button/Button";
 
 export interface UserGreetingProps {
   email: string;

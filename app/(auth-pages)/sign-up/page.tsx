@@ -1,6 +1,6 @@
 // app/(auth-pages)/sign-up/page.tsx
 import React from "react";
-import { Signup } from "../../../components/Signup";
+import { Signup } from "../../../src/_codux/boards/signup/Signup";
 import { Message } from "@/src/_codux/boards/form-message/FormMessage";
 
 export default function SignUpPage({
