@@ -1,8 +1,11 @@
+// src/_codux/components/Dashboard.tsx
+"use client";
+
 import React, { useState, useEffect } from "react";
-import { createClient } from "@/utils/supabase/server";
+import { createClient } from "@/app/utils/supabase/client";
 import { InfoIcon } from "lucide-react";
-import { redirect } from "next/navigation";
-import Roles from "../../../utils/user-management/roles";
+import { useRouter } from "next/navigation";
+import Roles from "@/app/utils/user-management/roles";
 
 export interface DashboardProps {
   className?: string;
@@ -11,12 +14,13 @@ export interface DashboardProps {
 export const Dashboard: React.FC<DashboardProps> = ({ className = "" }) => {
   const supabase = createClient();
   const [user, setUser] = useState<any>(null);
+  const router = useRouter();
 
   useEffect(() => {
     const fetchUser = async () => {
       const { data } = await supabase.auth.getUser();
       if (!data.user) {
-        redirect("/sign-in");
+        router.push("/sign-in");
       } else {
         setUser(data.user);
       }
@@ -24,8 +28,6 @@ export const Dashboard: React.FC<DashboardProps> = ({ className = "" }) => {
 
     fetchUser();
   }, []);
-
-  const roles = Roles();
 
   return (
     <div className={`flex-1 w-full flex flex-col gap-12 ${className}`}>
@@ -43,6 +45,10 @@ export const Dashboard: React.FC<DashboardProps> = ({ className = "" }) => {
             {JSON.stringify(user, null, 2)}
           </pre>
         )}
+      </div>
+      <div>
+        <h2 className="font-bold text-2xl mb-4">Roles</h2>
+        <Roles />
       </div>
     </div>
   );

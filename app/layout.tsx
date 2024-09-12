@@ -1,4 +1,4 @@
-import { hasEnvVars } from "@/utils/supabase/check-env-vars";
+import { hasEnvVars } from "@/app/utils/supabase/check-env-vars";
 import { GeistSans } from "geist/font/sans";
 import { ThemeProvider } from "next-themes";
 import { ThemeSwitcher } from "@/src/_codux/boards/theme-switcher/ThemeSwitcher";

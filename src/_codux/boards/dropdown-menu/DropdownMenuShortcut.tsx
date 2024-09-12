@@ -1,5 +1,5 @@
 import React from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/app/utils/cn";
 
 export interface DropdownMenuShortcutProps {
   className?: string;

@@ -1,7 +1,7 @@
 import React from "react";
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
 import { Check } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/app/utils/cn";
 
 export interface DropdownMenuCheckboxItemProps {
   className?: string;

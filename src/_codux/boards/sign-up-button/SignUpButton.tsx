@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { Button } from "../boards/button/Button";
+import { Button } from "../button/Button";
 
 export const SignUpButton: React.FC = () => (
   <Button
