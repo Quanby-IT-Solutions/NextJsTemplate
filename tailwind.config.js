@@ -59,12 +59,12 @@ const config = {
       },
       keyframes: {
         "accordion-down": {
-          from: { "block-size": "0" },
-          to: { "block-size": "var(--radix-accordion-content-height)" },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: { "block-size": "var(--radix-accordion-content-height)" },
-          to: { "block-size": "0" },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
         },
       },
       animation: {

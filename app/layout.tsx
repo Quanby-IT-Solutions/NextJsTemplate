@@ -1,11 +1,13 @@
-import DeployButton from "@/components/deploy-button";
-import { EnvVarWarning } from "@/components/env-var-warning";
-import HeaderAuth from "@/components/header-auth";
-import { ThemeSwitcher } from "@/components/theme-switcher";
-import { hasEnvVars } from "@/utils/supabase/check-env-vars";
+import { hasEnvVars } from "@/app/utils/supabase/check-env-vars";
 import { GeistSans } from "geist/font/sans";
 import { ThemeProvider } from "next-themes";
+import { ThemeSwitcher } from "@/src/_codux/boards/theme-switcher/ThemeSwitcher";
+import { EnvVarWarning } from "@/src/_codux/boards/env-var-warning/EnvVarWarning";
+import { UserGreeting } from "@/src/_codux/boards/user-greeting/UserGreeting";
+
 import Link from "next/link";
+import DeployButton from "@/src/_codux/boards/deploy-button/DeployButton";
+
 import "./globals.css";
 
 const defaultUrl = process.env.VERCEL_URL
@@ -14,15 +16,11 @@ const defaultUrl = process.env.VERCEL_URL
 
 export const metadata = {
   metadataBase: new URL(defaultUrl),
-  title: "Next.js and Supabase Starter Kit",
-  description: "The fastest way to build apps with Next.js and Supabase",
+  title: "Application Title Here",
+  description: "Meow Meow World",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={GeistSans.className} suppressHydrationWarning>
       <body className="bg-background text-foreground">
@@ -42,7 +40,11 @@ export default function RootLayout({
                       <DeployButton />
                     </div>
                   </div>
-                  {!hasEnvVars ? <EnvVarWarning /> : <HeaderAuth />}
+                  {!hasEnvVars ? (
+                    <EnvVarWarning />
+                  ) : (
+                    <UserGreeting email={"email_here"} />
+                  )}
                 </div>
               </nav>
               <div className="flex flex-col gap-20 max-w-5xl p-5">
