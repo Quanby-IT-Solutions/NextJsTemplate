@@ -1,4 +1,3 @@
-import { hasEnvVars } from "@/app/utils/supabase/check-env-vars";
 import { GeistSans } from "geist/font/sans";
 import { ThemeProvider } from "next-themes";
 import { ThemeSwitcher } from "@/src/_codux/boards/theme-switcher/ThemeSwitcher";
@@ -40,11 +39,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                       <DeployButton />
                     </div>
                   </div>
-                  {!hasEnvVars ? (
-                    <EnvVarWarning />
-                  ) : (
-                    <UserGreeting email={"email_here"} />
-                  )}
                 </div>
               </nav>
               <div className="flex flex-col gap-20 max-w-5xl p-5">
