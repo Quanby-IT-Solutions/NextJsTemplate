@@ -1,10 +1,10 @@
-import { resetPasswordAction } from "@/app/actions";
 import {
   Message,
   FormMessage,
 } from "@/src/_codux/boards/form-message/FormMessage";
 import { Input } from "@/src/_codux/boards/input/Input";
 import { SubmitButton } from "@/src/_codux/boards/submit-button/SubmitButton";
+import { resetPasswordAction } from "@/src/utils/actions";
 
 export interface ResetPasswordProps {
   className?: string;

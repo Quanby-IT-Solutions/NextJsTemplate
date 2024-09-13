@@ -1,5 +1,4 @@
-import React from "react";
-import { Dashboard } from "../../src/_codux/components/Dashboard";
+import { Dashboard } from "@/src/_codux/components/Dashboard";
 
 export default function ResetPasswordPage() {
   return (

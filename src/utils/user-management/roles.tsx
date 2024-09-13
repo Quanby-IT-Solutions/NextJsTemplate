@@ -2,7 +2,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { createClient } from "@/app/utils/supabase/client";
+import { createClient } from "@/src/utils/supabase/client";
 
 export default function Roles() {
   const [roles, setRoles] = useState<any[] | null>(null);

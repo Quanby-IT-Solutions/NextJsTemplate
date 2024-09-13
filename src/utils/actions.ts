@@ -1,9 +1,9 @@
 "use server";
 
-import { encodedRedirect } from "@/app/utils/utils";
-import { createClient } from "@/app/utils/supabase/server";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
+import { encodedRedirect } from "@/src/utils/utils";
+import { createClient } from "@/src/utils/supabase/client";
 
 export const signUpAction = async (formData: FormData) => {
   const email = formData.get("email")?.toString();
