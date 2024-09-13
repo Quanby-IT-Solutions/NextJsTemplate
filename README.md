@@ -92,3 +92,5 @@ This template provides a general-purpose approach for setting up a project with 
 [Dotenv and Cross-Var](https://www.genui.com/resources/env-variables-json#:~:text=By%20using%20dotenv%20and%20cross,it%20works%20across%20development%20platforms)
 
 [Basic Routes](https://www.youtube.com/watch?v=WaFBiDgqctY)
+
+[Codux Component Setup](https://help.codux.com/kb/en/article/creating-component-templates)

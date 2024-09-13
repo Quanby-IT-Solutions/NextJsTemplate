@@ -1,5 +1,5 @@
-import { Login } from "@/src/_codux/components/Login";
-import { Message } from "@/src/_codux/boards/form-message/FormMessage";
+import { Login } from "@/src/components/Login";
+import { Message } from "@/src/components/form-message/FormMessage";
 
 export default function SignInPage({
   searchParams,

@@ -1,5 +1,5 @@
-import { ForgotPassword } from "@/src/_codux/components/ForgotPassword";
-import { Message } from "@/src/_codux/boards/form-message/FormMessage";
+import { ForgotPassword } from "@/src/components/ForgotPassword";
+import { Message } from "@/src/components/form-message/FormMessage";
 
 export default function ForgotPasswordPage({
   searchParams,

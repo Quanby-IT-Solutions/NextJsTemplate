@@ -1,5 +1,5 @@
-import Hero from "@/src/_codux/boards/hero/Hero";
-import { SignInButton } from "@/src/_codux/boards/sign-in-button/SignInButton";
+import Hero from "@/src/components/hero/Hero";
+import { SignInButton } from "@/src/components/sign-in-button/SignInButton";
 
 export default async function Index() {
   return (

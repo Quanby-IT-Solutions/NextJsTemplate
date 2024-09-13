@@ -1,5 +1,5 @@
-import { Message } from "@/src/_codux/boards/form-message/FormMessage";
-import { ResetPassword } from "@/src/_codux/components/ResetPassword";
+import { Message } from "@/src/components/form-message/FormMessage";
+import { ResetPassword } from "@/src/components/ResetPassword";
 
 export default function ResetPasswordPage({
   searchParams,

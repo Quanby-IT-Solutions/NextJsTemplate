@@ -4,7 +4,7 @@ import Link from "next/link";
 
 import { GeistSans } from "geist/font/sans";
 import { ThemeProvider } from "next-themes";
-import { ThemeSwitcher } from "@/src/_codux/boards/theme-switcher/ThemeSwitcher";
+import { ThemeSwitcher } from "@/src/components/theme-switcher/ThemeSwitcher";
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
