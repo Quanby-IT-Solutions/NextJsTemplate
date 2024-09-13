@@ -1,10 +1,10 @@
-import { signInAction } from "@/app/actions";
 import {
   Message,
   FormMessage,
 } from "@/src/_codux/boards/form-message/FormMessage";
 import { Input } from "@/src/_codux/boards/input/Input";
 import { SubmitButton } from "@/src/_codux/boards/submit-button/SubmitButton";
+import { signInAction } from "@/src/utils/actions";
 import { Link } from "lucide-react";
 
 export interface LoginProps {

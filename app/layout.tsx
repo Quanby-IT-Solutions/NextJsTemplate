@@ -1,11 +1,8 @@
+import Link from "next/link";
+
 import { GeistSans } from "geist/font/sans";
 import { ThemeProvider } from "next-themes";
 import { ThemeSwitcher } from "@/src/_codux/boards/theme-switcher/ThemeSwitcher";
-import { EnvVarWarning } from "@/src/_codux/boards/env-var-warning/EnvVarWarning";
-import { UserGreeting } from "@/src/_codux/boards/user-greeting/UserGreeting";
-
-import Link from "next/link";
-import DeployButton from "@/src/_codux/boards/deploy-button/DeployButton";
 
 import "./globals.css";
 
@@ -34,31 +31,15 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <nav className="w-full flex justify-center border-b border-b-foreground/10 h-16">
                 <div className="w-full max-w-5xl flex justify-between items-center p-3 px-5 text-sm">
                   <div className="flex gap-5 items-center font-semibold">
-                    <Link href={"/"}>Next.js Supabase Starter</Link>
-                    <div className="flex items-center gap-2">
-                      <DeployButton />
-                    </div>
+                    <Link href={"/"}>Home</Link>
+                    <div className="flex items-center gap-2"></div>
                   </div>
                 </div>
               </nav>
               <div className="flex flex-col gap-20 max-w-5xl p-5">
                 {children}
               </div>
-
-              <footer className="w-full flex items-center justify-center border-t mx-auto text-center text-xs gap-8 py-16">
-                <p>
-                  Powered by{" "}
-                  <a
-                    href="https://supabase.com/?utm_source=create-next-app&utm_medium=template&utm_term=nextjs"
-                    target="_blank"
-                    className="font-bold hover:underline"
-                    rel="noreferrer"
-                  >
-                    Supabase
-                  </a>
-                </p>
-                <ThemeSwitcher />
-              </footer>
+              <ThemeSwitcher />
             </div>
           </main>
         </ThemeProvider>

@@ -49,11 +49,13 @@ To only develop locally without deployment, follow the steps below.
    ```bash
    npx create-next-app -e with-supabase
    ```
+
 3. Change into the app's directory:
 
    ```bash
    cd name-of-new-app
    ```
+
 4. Rename `.env.local.example` to `.env.local` and add the following details:
 
    ```
@@ -85,5 +87,8 @@ For any feedback or issues, please submit them through the [GitHub repository](h
 
 This template provides a general-purpose approach for setting up a project with Supabase and Next.js, including full authentication, local development setup, and deployment with Vercel.
 
+## References
 
-[https://www.genui.com/resources/env-variables-json#:~:text=By%20using%20dotenv%20and%20cross,it%20works%20across%20development%20platforms](https://www.genui.com/resources/env-variables-json#:~:text=By%20using%20dotenv%20and%20cross,it%20works%20across%20development%20platforms)!
+[Dotenv and Cross-Var](https://www.genui.com/resources/env-variables-json#:~:text=By%20using%20dotenv%20and%20cross,it%20works%20across%20development%20platforms)
+
+[Basic Routes](https://www.youtube.com/watch?v=WaFBiDgqctY)

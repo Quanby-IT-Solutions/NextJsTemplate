@@ -1,4 +1,3 @@
-import { forgotPasswordAction } from "@/app/actions";
 import {
   Message,
   FormMessage,
@@ -6,6 +5,7 @@ import {
 import { Input } from "@/src/_codux/boards/input/Input";
 import { SmtpMessage } from "@/src/_codux/boards/smtp-message/SmtpMessage";
 import { SubmitButton } from "@/src/_codux/boards/submit-button/SubmitButton";
+import { forgotPasswordAction } from "@/src/utils/actions";
 import { Link } from "lucide-react";
 
 export interface ForgotPasswordProps {

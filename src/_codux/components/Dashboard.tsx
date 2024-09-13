@@ -2,13 +2,13 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { createClient } from "@/app/utils/supabase/client";
 import { InfoIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
-import Roles from "@/app/utils/user-management/roles";
 import { UserGreeting } from "../boards/user-greeting/UserGreeting";
-import { signOutAction } from "@/app/actions";
 import { Button } from "../boards/button/Button";
+import { signOutAction } from "@/src/utils/actions";
+import { createClient } from "@/src/utils/supabase/client";
+import Roles from "@/src/utils/user-management/roles";
 
 export interface DashboardProps {
   className?: string;

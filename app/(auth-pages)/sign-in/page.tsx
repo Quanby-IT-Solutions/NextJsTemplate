@@ -1,5 +1,4 @@
-import React from "react";
-import { Login } from "../../../src/_codux/components/Login";
+import { Login } from "@/src/_codux/components/Login";
 import { Message } from "@/src/_codux/boards/form-message/FormMessage";
 
 export default function SignInPage({
