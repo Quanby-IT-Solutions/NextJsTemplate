@@ -1,5 +1,5 @@
-import { Signup } from "@/src/_codux/boards/signup/Signup";
-import { Message } from "@/src/_codux/boards/form-message/FormMessage";
+import { Signup } from "@/src/components/signup/Signup";
+import { Message } from "@/src/components/form-message/FormMessage";
 
 export default function SignUpPage({
   searchParams,

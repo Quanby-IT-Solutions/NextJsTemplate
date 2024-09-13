@@ -1,6 +1,6 @@
 {
   "$schema": "https://wixplosives.github.io/codux-config-schema/codux.config.schema.json",
-  "boardGlobalSetup": "./src/_codux/boards-global-setup.ts",
+  "boardGlobalSetup": "./src/boards-global-setup.ts",
   "previewConfiguration": {
     "environmentVariables": {
       "NODE_ENV": "dotenv cross-var docker kill %NODE_ENV%",
@@ -9,6 +9,7 @@
     }
   },
   "newComponent": {
-    "componentsPath": "src/_codux/boards"
+    "componentsPath": "src/components",
+    "templatesPath": "src/component-templates"
   }
 }

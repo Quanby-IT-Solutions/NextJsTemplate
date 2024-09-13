@@ -1,4 +1,4 @@
-import { Dashboard } from "@/src/_codux/components/Dashboard";
+import { Dashboard } from "@/src/components/Dashboard";
 
 export default function ResetPasswordPage() {
   return (

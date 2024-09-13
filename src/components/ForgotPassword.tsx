@@ -1,10 +1,10 @@
 import {
   Message,
   FormMessage,
-} from "@/src/_codux/boards/form-message/FormMessage";
-import { Input } from "@/src/_codux/boards/input/Input";
-import { SmtpMessage } from "@/src/_codux/boards/smtp-message/SmtpMessage";
-import { SubmitButton } from "@/src/_codux/boards/submit-button/SubmitButton";
+} from "@/src/components/form-message/FormMessage";
+import { Input } from "@/src/components/input/Input";
+import { SmtpMessage } from "@/src/components/smtp-message/SmtpMessage";
+import { SubmitButton } from "@/src/components/submit-button/SubmitButton";
 import { forgotPasswordAction } from "@/src/utils/actions";
 import { Link } from "lucide-react";
 
