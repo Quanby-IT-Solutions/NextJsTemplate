@@ -17,5 +17,5 @@
     "templatesPath": "src/component-templates"
   },
   "disableProjectSharing": true,
-  "fileNamingConvention": "pascal-case"
+  "fileNamingConvention": "kebab-case"
 }

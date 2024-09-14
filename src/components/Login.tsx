@@ -1,8 +1,8 @@
 import { Link } from "lucide-react";
+import { signInAction } from "../utils/actions";
 import { Message, FormMessage } from "./form-message/FormMessage";
 import { Input } from "./input/Input";
 import { SubmitButton } from "./submit-button/SubmitButton";
-import { signInAction } from "../utils/actions";
 
 export interface LoginProps {
   className?: string;

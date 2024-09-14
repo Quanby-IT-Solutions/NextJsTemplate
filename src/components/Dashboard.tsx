@@ -4,8 +4,8 @@
 import React, { useState, useEffect } from "react";
 import { InfoIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { UserGreeting } from "./user-greeting/UserGreeting";
-import { Button } from "./button/Button";
+import { UserGreeting } from "../components/user-greeting/UserGreeting";
+import { Button } from "../components/button/Button";
 import { signOutAction } from "@/src/utils/actions";
 import { createClient } from "@/src/utils/supabase/client";
 import Roles from "@/src/utils/user-management/roles";
