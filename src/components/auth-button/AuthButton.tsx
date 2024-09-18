@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { SignInButton } from "../sign-in-button/SignInButton";
 import { UserGreeting } from "../user-greeting/UserGreeting";
 import { createClient } from "@/src/utils/supabase/server";

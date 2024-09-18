@@ -1,7 +1,7 @@
 // src/_codux/components/Dashboard.tsx
 "use client";
 
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { InfoIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { UserGreeting } from "../components/user-greeting/UserGreeting";
