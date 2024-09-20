@@ -1,11 +1,8 @@
-import {
-  Message,
-  FormMessage,
-} from "@/src/components/form-message/FormMessage";
-import { Input } from "@/src/components/input/Input";
-import { SubmitButton } from "@/src/components/submit-button/SubmitButton";
-import { signInAction } from "@/src/utils/actions";
 import { Link } from "lucide-react";
+import { signInAction } from "../utils/actions";
+import { Message, FormMessage } from "./form-message/FormMessage";
+import { Input } from "./input/Input";
+import { SubmitButton } from "./submit-button/SubmitButton";
 
 export interface LoginProps {
   className?: string;

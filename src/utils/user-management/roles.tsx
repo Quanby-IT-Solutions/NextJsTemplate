@@ -1,7 +1,7 @@
 // app/utils/user-management/roles.tsx
 "use client";
 
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { createClient } from "@/src/utils/supabase/client";
 
 export default function Roles() {
