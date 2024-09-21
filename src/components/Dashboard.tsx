@@ -4,19 +4,21 @@
 import { useState, useEffect } from "react";
 import { InfoIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { UserGreeting } from "../components/user-greeting/UserGreeting";
-import { Button } from "../components/button/Button";
 import { signOutAction } from "@/src/utils/actions";
 import { createClient } from "@/src/utils/supabase/client";
+
 import Roles from "@/src/utils/user-management/roles";
+import { Button } from "./button/Button";
+import { UserGreeting } from "./user-greeting/UserGreeting";
 
 export interface DashboardProps {
   className?: string;
 }
 
 export const Dashboard: React.FC<DashboardProps> = ({ className = "" }) => {
-  const supabase = createClient();
   const [user, setUser] = useState<any>(null);
+
+  const supabase = createClient();
   const router = useRouter();
 
   useEffect(() => {
