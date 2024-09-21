@@ -3,7 +3,6 @@ import {
   FormMessage,
 } from "@/src/components/form-message/FormMessage";
 import { Input } from "@/src/components/input/Input";
-import { SmtpMessage } from "@/src/components/smtp-message/SmtpMessage";
 import { SubmitButton } from "@/src/components/submit-button/SubmitButton";
 import { forgotPasswordAction } from "@/src/utils/actions";
 import { Link } from "lucide-react";
@@ -32,13 +31,12 @@ export const ForgotPassword: React.FC<ForgotPasswordProps> = ({
         <label htmlFor="email" className="text-sm font-medium">
           Email
         </label>
-        <Input name="email" placeholder="you@example.com" required />
+        <Input name="email" placeholder="email@domain.com" required />
         <SubmitButton formAction={forgotPasswordAction}>
           Reset Password
         </SubmitButton>
         <FormMessage message={searchParams} />
       </div>
     </form>
-    <SmtpMessage />
   </div>
 );
