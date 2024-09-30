@@ -7,7 +7,7 @@ import {
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
 } from "@radix-ui/react-dropdown-menu";
-import { Laptop, Moon, Sun } from "lucide-react";
+import { Monitor, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { Button } from "../button/Button";
@@ -24,49 +24,40 @@ const ThemeSwitcher = () => {
     return null;
   }
 
-  const ICON_SIZE = 16;
+  const ICON_SIZE = 18;
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size={"sm"}>
+        <Button variant="ghost" size="sm">
           {theme === "light" ? (
-            <Sun
-              key="light"
-              size={ICON_SIZE}
-              className={"text-muted-foreground"}
-            />
+            <Sun size={ICON_SIZE} className="text-yellow-500" />
           ) : theme === "dark" ? (
-            <Moon
-              key="dark"
-              size={ICON_SIZE}
-              className={"text-muted-foreground"}
-            />
+            <Moon size={ICON_SIZE} className="text-gray-400" />
           ) : (
-            <Laptop
-              key="system"
-              size={ICON_SIZE}
-              className={"text-muted-foreground"}
-            />
+            <Monitor size={ICON_SIZE} className="text-muted-foreground" />
           )}
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-content" align="start">
+      <DropdownMenuContent
+        className="w-40 p-2 bg-background rounded-md shadow-lg border border-border"
+        align="start"
+      >
         <DropdownMenuRadioGroup
           value={theme}
           onValueChange={(e) => setTheme(e)}
         >
-          <DropdownMenuRadioItem className="flex gap-2" value="light">
-            <Sun size={ICON_SIZE} className="text-muted-foreground" />{" "}
-            <span>Light</span>
+          <DropdownMenuRadioItem className="flex items-center gap-3 p-2 hover:bg-accent rounded-md transition-colors" value="light">
+            <Sun size={ICON_SIZE} className="text-yellow-500" />
+            <span className="text-foreground">Light</span>
           </DropdownMenuRadioItem>
-          <DropdownMenuRadioItem className="flex gap-2" value="dark">
-            <Moon size={ICON_SIZE} className="text-muted-foreground" />{" "}
-            <span>Dark</span>
+          <DropdownMenuRadioItem className="flex items-center gap-3 p-2 hover:bg-accent rounded-md transition-colors" value="dark">
+            <Moon size={ICON_SIZE} className="text-gray-400" />
+            <span className="text-foreground">Dark</span>
           </DropdownMenuRadioItem>
-          <DropdownMenuRadioItem className="flex gap-2" value="system">
-            <Laptop size={ICON_SIZE} className="text-muted-foreground" />{" "}
-            <span>System</span>
+          <DropdownMenuRadioItem className="flex items-center gap-3 p-2 hover:bg-accent rounded-md transition-colors" value="system">
+            <Monitor size={ICON_SIZE} className="text-muted-foreground" />
+            <span className="text-foreground">System</span>
           </DropdownMenuRadioItem>
         </DropdownMenuRadioGroup>
       </DropdownMenuContent>

@@ -31,7 +31,7 @@ export const ForgotPassword: React.FC<ForgotPasswordProps> = ({
         <label htmlFor="email" className="text-sm font-medium">
           Email
         </label>
-        <Input name="email" placeholder="email@domain.com" required />
+        <Input name="email" placeholder="you@example.com" required />
         <SubmitButton formAction={forgotPasswordAction}>
           Reset Password
         </SubmitButton>

@@ -7,7 +7,7 @@ export default function ForgotPasswordPage({
   searchParams: Message;
 }) {
   return (
-    <div className="container mx-auto">
+    <div className="">
       <ForgotPassword searchParams={searchParams} />
     </div>
   );
