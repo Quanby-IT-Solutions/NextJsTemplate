@@ -1,6 +1,8 @@
-import React from "react";
-import { createBoard } from "@wixc3/react-board";
-import { DashboardLayout } from "../../../components/dashboard-layout/dashboard-layout";
+"use client";
+
+import { useEffect, ReactNode } from "react";
+import { useRouter } from "next/navigation";
+import { createClient } from "@/src/utils/supabase/client";
 import {
   LayoutDashboard,
   User,
@@ -11,12 +13,34 @@ import {
   Users,
   Settings as AdminSettings,
 } from "lucide-react";
+import { DashboardLayout } from "../../components/dashboard-layout/dashboard-layout";
+import { UserProvider, useUser } from "@/src/utils/user/user-context";
 
-export default createBoard({
-  name: "DashboardLayout",
-  Board: () => (
+interface AuthLayoutProps {
+  children: ReactNode;
+}
+
+const AuthLayoutContent: React.FC<AuthLayoutProps> = ({ children }) => {
+  const { user, setUser } = useUser();
+  const supabase = createClient();
+  const router = useRouter();
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const { data } = await supabase.auth.getUser();
+      if (!data.user) {
+        router.push("/sign-in");
+      } else {
+        setUser(data.user);
+      }
+    };
+
+    fetchUser();
+  }, [router, supabase, setUser]);
+
+  return (
     <DashboardLayout
-      isAuthenticated={true}
+      isAuthenticated={!!user}
       websiteName=""
       sidebarLinks={[
         {
@@ -33,13 +57,13 @@ export default createBoard({
           subLinks: [
             {
               label: "View Profile",
-              href: "/profile/view",
+              href: "/profile",
               enabled: true,
               icon: <Eye size={20} />,
             },
             {
               label: "Edit Profile",
-              href: "/profile/edit",
+              href: "/profile",
               enabled: true,
               icon: <Edit size={20} />,
             },
@@ -72,8 +96,15 @@ export default createBoard({
         },
       ]}
     >
-      <div>Dashboard Content Here</div>
+      {children}
     </DashboardLayout>
-  ),
-  isSnippet: true,
-});
+  );
+};
+
+export const AuthLayout: React.FC<AuthLayoutProps> = ({ children }) => {
+  return (
+    <UserProvider>
+      <AuthLayoutContent>{children}</AuthLayoutContent>
+    </UserProvider>
+  );
+};

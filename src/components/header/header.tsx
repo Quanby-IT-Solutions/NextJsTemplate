@@ -1,7 +1,8 @@
-import React from "react";
 import { cn } from "@/src/utils/cn";
 import { AuthButtons } from "../auth-button/AuthButton";
 import { ThemeSwitcher } from "../theme-switcher/ThemeSwitcher";
+import { Button } from "../button/Button";
+import { signOutAction } from "@/src/utils/actions";
 
 export interface HeaderLink {
   label: string;
@@ -50,7 +51,15 @@ export const Header: React.FC<HeaderProps> = ({
     )}
     <div className="flex items-center space-x-4">
       <ThemeSwitcher />
-      {!isAuthenticated && <AuthButtons />}
+      {!isAuthenticated ? (
+        <AuthButtons />
+      ) : (
+        <form action={signOutAction}>
+          <Button type="submit" variant="outline">
+            Sign out
+          </Button>
+        </form>
+      )}
     </div>
   </header>
 );

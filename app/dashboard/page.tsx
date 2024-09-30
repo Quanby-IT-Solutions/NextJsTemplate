@@ -1,9 +1,10 @@
-import { Dashboard } from "@/src/page-view/Dashboard";
+import { AuthLayout } from "@/src/page-view/auth-pages/auth-layout";
+import { DashboardContent } from "@/src/page-view/auth-pages/dashboard";
 
-export default function ResetPasswordPage() {
+export default function DashboardPage() {
   return (
-    <div className="">
-      <Dashboard />
-    </div>
+    <AuthLayout>
+      <DashboardContent />
+    </AuthLayout>
   );
 }
