@@ -17,7 +17,7 @@ export default async function BookDetailsPage({
   }
 
   return (
-    <div className="container mx-auto">
+    <div className="">
       <h1 className="text-2xl font-bold mb-4">{book.title}</h1>
       <div className="flex">
         <img

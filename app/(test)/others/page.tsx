@@ -1,3 +1,3 @@
 export default function OthersPage() {
-  return <div className="container mx-auto"></div>;
+  return <div className=""></div>;
 }

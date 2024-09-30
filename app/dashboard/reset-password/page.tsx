@@ -7,7 +7,7 @@ export default function ResetPasswordPage({
   searchParams: Message;
 }) {
   return (
-    <div className="container mx-auto">
+    <div className="">
       <ResetPassword className="my-custom-class" searchParams={searchParams} />
     </div>
   );

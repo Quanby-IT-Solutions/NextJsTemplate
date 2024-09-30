@@ -7,7 +7,7 @@ export default function SignInPage({
   searchParams: Message;
 }) {
   return (
-    <div className="container mx-auto">
+    <div className="">
       <Login searchParams={searchParams} />
     </div>
   );

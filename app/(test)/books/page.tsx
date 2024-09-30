@@ -25,7 +25,7 @@ export default function BooksPage() {
   }, [search, sort, limit]);
 
   return (
-    <div className="container mx-auto">
+    <div className="">
       <h1 className="text-2xl font-bold mb-4">Books</h1>
       <div className="mb-4">
         <label htmlFor="search" className="sr-only">

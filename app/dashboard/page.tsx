@@ -1,8 +1,8 @@
-import { Dashboard } from "@/src/components/Dashboard";
+import { Dashboard } from "@/src/page-view/Dashboard";
 
 export default function ResetPasswordPage() {
   return (
-    <div className="container mx-auto">
+    <div className="">
       <Dashboard />
     </div>
   );
