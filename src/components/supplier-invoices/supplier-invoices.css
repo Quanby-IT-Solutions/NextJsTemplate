@@ -1,0 +1,84 @@
+.SupplierInvoices_tbody1 {
+  text-align: center;
+  opacity: 1;
+}
+.SupplierInvoices_p1 {
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 80px;
+  margin-right: 0px;
+  margin-top: 0px;
+  margin-left: 0px;
+  padding: 0px;
+}
+.SupplierInvoices_div2 {
+  z-index: 100;
+}
+.supplier-invoices {
+  margin: 20px;
+  background-color: #f9fafb; /* Light background color */
+  border-radius: 12px; /* Corner radius for the outer container */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  overflow: visible; /* Ensure rounded corners are visible */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse; /* Collapses table borders */
+}
+
+th,
+td {
+  padding: 12px; /* More padding for a better look */
+}
+
+th {
+  background-color: #dfdfdf; /* Blue background for headers */
+  color: black; /* White text for headers */
+  font-weight: bold; /* Bold font for headers */
+}
+
+tr:hover {
+  background-color: #e0f2fe; /* Light blue on row hover */
+}
+
+.SupplierInvoices_div1 {
+  position: static;
+}
+
+.SupplierInvoices_div2 {
+  /* Ensure dropdown is on top */
+  position: fixed;
+  display: block;
+  right: auto;
+  box-shadow: 3px 3px 2px rgba(0, 0, 0, 0.07);
+  z-index: 100;
+}
+
+.bg-gray-200 {
+  background-color: #e5e7eb; /* Adjusted gray */
+}
+
+.bg-gray-100 {
+  background-color: #f3f4f6; /* Slightly darker gray for hover */
+}
+
+.text-green-500 {
+  color: #22c55e; /* Green color for paid status */
+}
+
+.text-red-500 {
+  color: #ef4444; /* Red color for unpaid status */
+}
+.SupplierInvoices_thead1 {
+  border-radius: 100px;
+}
+.SupplierInvoices_div3 {
+  position: static;
+  display: flex;
+  justify-content: space-between;
+}
+.SupplierInvoices_div4 {
+  position: static;
+  display: grid;
+}

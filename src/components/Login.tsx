@@ -25,7 +25,7 @@ export const Login: React.FC<LoginProps> = ({
       <label htmlFor="email" className="text-sm font-medium">
         Email
       </label>
-      <Input name="email" placeholder="email@domain.com" required />
+      <Input name="email" placeholder="you@example.com" required />
       <div className="flex justify-between items-center">
         <label htmlFor="password" className="text-sm font-medium">
           Password
@@ -37,7 +37,12 @@ export const Login: React.FC<LoginProps> = ({
           Forgot Password?
         </Link>
       </div>
-      <Input type="password" name="password" placeholder="********" required />
+      <Input
+        type="password"
+        name="password"
+        placeholder="Your password"
+        required
+      />
       <SubmitButton pendingText="Signing In..." formAction={signInAction}>
         Sign in
       </SubmitButton>
