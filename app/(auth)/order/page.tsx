@@ -1,15 +1,11 @@
 import { Message } from "@/src/components/form-message/FormMessage";
 import { AuthLayout } from "@/src/page-view/auth-pages/auth-layout";
-import { Profile } from "@/src/page-view/auth-pages/profile";
+import OrderManagement from "@/src/page-view/auth-pages/order-management";
 
-export default function ResetPasswordPage({
-  searchParams,
-}: {
-  searchParams: Message;
-}) {
+export default function Order({ searchParams }: { searchParams: Message }) {
   return (
     <AuthLayout>
-      <Profile />
+      <OrderManagement />
     </AuthLayout>
   );
 }

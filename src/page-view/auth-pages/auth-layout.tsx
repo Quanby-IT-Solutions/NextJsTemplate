@@ -12,6 +12,7 @@ import {
   Edit,
   Users,
   Settings as AdminSettings,
+  ListOrdered,
 } from "lucide-react";
 import { DashboardLayout } from "../../components/dashboard-layout/dashboard-layout";
 import { UserProvider, useUser } from "@/src/utils/user/user-context";
@@ -70,6 +71,12 @@ const AuthLayoutContent: React.FC<AuthLayoutProps> = ({ children }) => {
           ],
         },
         {
+          label: "Order",
+          href: "/order",
+          enabled: true,
+          icon: <ListOrdered size={20} />,
+        },
+        {
           label: "Settings",
           href: "/settings",
           enabled: true,
@@ -104,7 +111,9 @@ const AuthLayoutContent: React.FC<AuthLayoutProps> = ({ children }) => {
 export const AuthLayout: React.FC<AuthLayoutProps> = ({ children }) => {
   return (
     <UserProvider>
-      <AuthLayoutContent>{children}</AuthLayoutContent>
+      <AuthLayoutContent>
+        <main className="flex flex-col rounded-none">{children}</main>
+      </AuthLayoutContent>
     </UserProvider>
   );
 };
