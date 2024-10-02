@@ -1,5 +1,6 @@
 import { Message } from "@/src/components/form-message/FormMessage";
 import { AuthLayout } from "@/src/page-view/auth-pages/auth-layout";
+import { Profile } from "@/src/page-view/auth-pages/profile";
 
 export default function ResetPasswordPage({
   searchParams,
@@ -8,7 +9,7 @@ export default function ResetPasswordPage({
 }) {
   return (
     <AuthLayout>
-      Profile View
+      <Profile />
     </AuthLayout>
   );
 }
