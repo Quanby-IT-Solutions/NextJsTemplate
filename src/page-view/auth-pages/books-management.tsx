@@ -1,126 +1,124 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import { ColumnDefinition, Table } from "@/src/components/table/Table";
-import ActionControls from "@/src/components/table/ActionControls";
+import React, { useEffect, useState, useMemo } from "react";
+import { ColumnDefinition, Table, Filter } from "@/src/components/table/Table";
 import { ButtonConfig } from "@/src/components/button/Button";
 
 interface Book {
-  id: string;
+  id: number;
   title: string;
   author: string;
   genre: string[];
-  publication_year: string;
+  publication_year: number;
+  description: string;
   cover_image: string;
-  status: "Available" | "Checked Out" | "Reserved";
-}
-
-interface Filter {
-  type: "text" | "date" | "dropdown";
-  label: string;
-  value: string | null;
-  setValue: React.Dispatch<React.SetStateAction<string | null>>;
-  options?: { value: string; label: string }[];
 }
 
 const BooksManagement: React.FC = () => {
   const [books, setBooks] = useState<Book[]>([]);
-  const [search, setSearch] = useState<string | null>(null);
   const [filterGenre, setFilterGenre] = useState<string | null>(null);
   const [selectedRows, setSelectedRows] = useState<Set<number>>(new Set());
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [itemsPerPage, setItemsPerPage] = useState<number>(5);
+  const [itemsPerPage, setItemsPerPage] = useState<number>(10);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [genres, setGenres] = useState<string[]>([]);
 
-  // Fetch books data from API
   useEffect(() => {
     const fetchBooks = async () => {
+      setIsLoading(true);
       try {
-        const url = `/api/books?search=${search || ""}&page=${currentPage}`;
-        const response = await fetch(url);
+        const response = await fetch("/api/books");
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
         const data = await response.json();
         setBooks(data);
+
+        // Extract unique genres
+        const uniqueGenres = Array.from(
+          new Set(data.flatMap((book: Book) => book.genre))
+        );
+        setGenres(uniqueGenres as string[]);
       } catch (error) {
         console.error("Error fetching books:", error);
+        setBooks([]);
+        setGenres([]);
+      } finally {
+        setIsLoading(false);
       }
     };
 
     fetchBooks();
-  }, [search, filterGenre, currentPage, itemsPerPage]);
+  }, []);
 
-  const filterOptions = Array.from(
-    new Set(books.flatMap((book) => book.genre))
-  ).map((genre) => ({
-    value: genre,
-    label: genre,
-  }));
-
-  const filters: Filter[] = [
+  const columns: ColumnDefinition<Book>[] = [
+    { header: "Title", accessor: "title", sortable: true },
+    { header: "Author", accessor: "author", sortable: true },
     {
-      type: "text",
-      label: "Search by Title or Author",
-      value: search,
-      setValue: setSearch,
+      header: "Publication Year",
+      accessor: "publication_year",
+      sortable: true,
     },
     {
-      type: "dropdown",
-      label: "Genre",
-      value: filterGenre,
-      setValue: setFilterGenre,
-      options: filterOptions,
+      header: "Genre",
+      accessor: "genre",
+      sortable: true,
+      render: (data: string | number | string[]) => {
+        if (Array.isArray(data)) {
+          return data.join(", ");
+        } else if (typeof data === "string" || typeof data === "number") {
+          return String(data);
+        }
+        return "";
+      },
     },
   ];
 
-  const filteredBooks = books.filter((book) => {
-    const matchesSearch =
-      !search ||
-      book.title.toLowerCase().includes(search.toLowerCase()) ||
-      book.author.toLowerCase().includes(search.toLowerCase());
-    const matchesGenre = !filterGenre || book.genre.includes(filterGenre);
+  const filterOptions = useMemo(() => {
+    return genres.map((genre) => ({
+      value: genre,
+      label: genre,
+    }));
+  }, [genres]);
 
-    return matchesSearch && matchesGenre;
-  });
-
-  const totalPages = Math.ceil(filteredBooks.length / itemsPerPage);
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const paginatedBooks = filteredBooks.slice(
-    startIndex,
-    startIndex + itemsPerPage
+  const filters: Filter[] = useMemo(
+    () => [
+      {
+        type: "dropdown",
+        label: "Genre",
+        value: filterGenre,
+        setValue: setFilterGenre,
+        options: filterOptions,
+      },
+    ],
+    [filterGenre, filterOptions]
   );
 
-  const handlePageChange = (page: number) => {
-    if (page >= 1 && page <= totalPages) {
-      setCurrentPage(page);
-    }
-  };
-
-  const handleNextPage = () => handlePageChange(currentPage + 1);
-  const handlePreviousPage = () => handlePageChange(currentPage - 1);
-  const handleFirstPage = () => handlePageChange(1);
-  const handleLastPage = () => handlePageChange(totalPages);
-
-  const handleResetFilter = () => {
-    setSearch(null);
-    setFilterGenre(null);
-  };
+  useEffect(() => {
+    console.log("Current books:", books);
+    console.log("Current filter genre:", filterGenre);
+  }, [books, filterGenre]);
 
   const handleExportData = () => {
-    console.log("Exporting data...", filteredBooks);
+    console.log("Exporting data...", books);
+    // Implement export functionality here
   };
 
   const handleEditRow = (row: Book, index: number) => {
     console.log("Editing row:", row);
+    // Implement edit functionality here
   };
 
   const handleDeleteRow = (index: number) => {
     console.log("Deleting row at index:", index);
-    setBooks((prevData) => prevData.filter((_, i) => i !== index));
+    setBooks((prevBooks) => prevBooks.filter((_, i) => i !== index));
   };
 
   const handleBulkDelete = () => {
     if (selectedRows.size > 0) {
       console.log("Deleting selected rows:", Array.from(selectedRows));
-      setBooks((prevData) =>
-        prevData.filter((_, index) => !selectedRows.has(index))
+      setBooks((prevBooks) =>
+        prevBooks.filter((_, index) => !selectedRows.has(index))
       );
       setSelectedRows(new Set());
     }
@@ -145,14 +143,7 @@ const BooksManagement: React.FC = () => {
     return [];
   };
 
-  // Buttons configuration
   const buttons: ButtonConfig[] = [
-    {
-      label: "Reset Filter",
-      onClick: handleResetFilter,
-      variant: "destructive",
-      size: "sm",
-    },
     {
       label: "Export Data",
       onClick: handleExportData,
@@ -162,65 +153,31 @@ const BooksManagement: React.FC = () => {
     ...getDeleteSelectedButtonConfig(),
   ];
 
-  // Columns configuration
-  const columns: ColumnDefinition<Book>[] = [
-    { header: "Title", accessor: "title" },
-    { header: "Author", accessor: "author" },
-    { header: "Publication Year", accessor: "publication_year" },
-    {
-      header: "Genre",
-      accessor: "genre",
-      render: (genres: string | string[]) => {
-        if (Array.isArray(genres)) {
-          return genres.join(", ");
-        }
-        return genres;
-      },
-    },
-    {
-      header: "Cover",
-      accessor: "cover_image",
-      render: (coverImage: string | string[]) => {
-        if (typeof coverImage === "string") {
-          return (
-            <img
-              src={coverImage}
-              alt="Book Cover"
-              className="w-20 h-28 object-cover"
-            />
-          );
-        }
-        // If coverImage is an array, return a fallback or handle it differently
-        return null;
-      },
-    },
-  ];
-
   return (
     <div className="flex flex-col gap-4 p-8">
       <h1 className="text-2xl font-bold">Books Management</h1>
-
-      <ActionControls filters={filters} buttons={buttons} />
-
-      <Table
-        columns={columns}
-        data={paginatedBooks}
-        selectable
-        editable
-        onEditRow={handleEditRow}
-        onDeleteRow={handleDeleteRow}
-        selectedRows={selectedRows}
-        setSelectedRows={setSelectedRows}
-        currentPage={currentPage}
-        totalPages={totalPages}
-        onNextPage={handleNextPage}
-        onPreviousPage={handlePreviousPage}
-        onFirstPage={handleFirstPage}
-        onLastPage={handleLastPage}
-        onPageChange={handlePageChange}
-        itemsPerPage={itemsPerPage}
-        onItemsPerPageChange={handleItemsPerPageChange}
-      />
+      {isLoading ? (
+        <div>Loading...</div>
+      ) : (
+        <>
+          <Table<Book>
+            columns={columns}
+            data={books}
+            filters={filters}
+            buttons={buttons}
+            selectable
+            editable
+            onEditRow={handleEditRow}
+            onDeleteRow={handleDeleteRow}
+            selectedRows={selectedRows}
+            setSelectedRows={setSelectedRows}
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+            itemsPerPage={itemsPerPage}
+            onItemsPerPageChange={handleItemsPerPageChange}
+          />
+        </>
+      )}
     </div>
   );
 };
