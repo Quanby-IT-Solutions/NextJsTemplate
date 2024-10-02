@@ -21,18 +21,15 @@ const ActionControls: React.FC<ActionControlsProps> = ({
   filters,
   buttons,
 }) => {
-  // Extract repeated styles into constants for reusability
   const inputStyles =
-    "px-3 py-2 border rounded-md text-neutral-600 dark:text-neutral-300 bg-gray-100 dark:bg-gray-700";
-
-  // UseMemo to render filters only when `filters` changes
+    "p-1 border rounded text-neutral-600 dark:text-neutral-300 bg-gray-50 dark:bg-gray-800 text-sm";
   const renderedFilters = useMemo(
     () =>
       filters.map((filter, index) => (
-        <div key={index} className="flex flex-col gap-2 w-full sm:w-auto">
+        <div key={index} className="flex flex-col gap-1 w-full sm:w-auto">
           <label
             htmlFor={`filter-${index}`}
-            className="font-bold text-neutral-800 dark:text-neutral-200"
+            className="text-neutral-700 dark:text-neutral-300 text-xs"
           >
             {filter.label}
           </label>
@@ -43,7 +40,6 @@ const ActionControls: React.FC<ActionControlsProps> = ({
               value={filter.value || ""}
               onChange={(e) => filter.setValue(e.target.value || null)}
               className={inputStyles}
-              placeholder="Select a date"
             />
           )}
           {filter.type === "text" && (
@@ -53,7 +49,7 @@ const ActionControls: React.FC<ActionControlsProps> = ({
               value={filter.value || ""}
               onChange={(e) => filter.setValue(e.target.value || null)}
               className={inputStyles}
-              placeholder="Enter text"
+              placeholder="Text"
             />
           )}
           {filter.type === "dropdown" && (
@@ -77,16 +73,16 @@ const ActionControls: React.FC<ActionControlsProps> = ({
   );
 
   return (
-    <Container className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-      <div className="flex flex-wrap gap-4 items-center">{renderedFilters}</div>
+    <Container className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+      <div className="flex flex-wrap gap-2 items-center">{renderedFilters}</div>
 
-      <div className="flex flex-wrap gap-4 mt-4 sm:mt-0 sm:ml-auto overflow-x-auto">
+      <div className="flex flex-wrap gap-2 mt-2 sm:mt-0 sm:ml-auto">
         {buttons.map((button, index) => (
           <Button
             key={index}
             onClick={button.onClick}
-            variant={button.variant}
-            size={button.size}
+            variant="ghost"
+            size="sm"
             aria-label={button.label}
           >
             {button.label}

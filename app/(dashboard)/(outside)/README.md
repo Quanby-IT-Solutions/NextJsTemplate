@@ -5,12 +5,12 @@ Note: This pages are available without `/dashboard`. So, they can be individuall
 ```bash
 # do it like this:
 /profile
-/sample-data
+/sample
 /settings
 
 # instead of this:
 /dashboard/profile
-/dashboard/sample-data
+/dashboard/sample
 ...
 ..
 .

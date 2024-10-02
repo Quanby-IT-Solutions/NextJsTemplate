@@ -7,11 +7,9 @@ import {
   LayoutDashboard,
   User,
   Settings,
-  ShieldAlert,
-  Users,
-  Settings as AdminSettings,
   ListOrdered,
   Book,
+  ShieldCheck,
 } from "lucide-react";
 import { DashboardLayout } from "../../components/dashboard-layout/dashboard-layout";
 import { UserProvider, useUser } from "@/src/utils/user/user-context";
@@ -62,33 +60,27 @@ const AuthLayoutContent: React.FC<AuthLayoutProps> = ({ children }) => {
           icon: <Book size={20} />,
         },
         {
-          label: "Sample Data",
-          href: "/sample-data",
+          label: "Sample",
+          href: "/sample",
           enabled: true,
           icon: <ListOrdered size={20} />,
         },
         {
           label: "Settings",
-          href: "/settings",
           enabled: true,
           icon: <Settings size={20} />,
-        },
-        {
-          label: "Admin Panel",
-          enabled: true,
-          icon: <ShieldAlert size={20} />,
           subLinks: [
             {
-              label: "User Management",
-              href: "/admin/users",
+              label: "Profile",
+              href: "/profile",
               enabled: true,
-              icon: <Users size={20} />,
+              icon: <User size={20} />,
             },
             {
-              label: "Site Settings",
-              href: "/admin/settings",
-              enabled: false,
-              icon: <AdminSettings size={20} />,
+              label: "System",
+              href: "/cms",
+              enabled: true,
+              icon: <ShieldCheck size={20} />,
             },
           ],
         },

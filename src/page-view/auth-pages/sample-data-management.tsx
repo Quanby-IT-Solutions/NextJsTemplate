@@ -1,10 +1,8 @@
-// Always use this template, plus replacing the Orders as the Proper data of your table
 "use client";
 
-import { ColumnDefinition, Table } from "@/src/components/table/Table";
+import React, { useState, useMemo, useCallback, useEffect } from "react";
+import { ColumnDefinition, Table, Filter } from "@/src/components/table/Table";
 import { StatusBadge } from "@/src/components/StatusBadge";
-import React, { useState } from "react";
-import ActionControls from "@/src/components/table/ActionControls";
 import { CheckCircle, Hourglass, XCircle } from "lucide-react";
 import { ButtonConfig } from "@/src/components/button/Button";
 
@@ -16,7 +14,6 @@ interface Order {
   type: string;
   status: "Completed" | "Processing" | "Rejected";
 }
-
 const orders: Order[] = [
   {
     id: "00001",
@@ -139,119 +136,81 @@ const orders: Order[] = [
     status: "Processing",
   },
 ];
-
-interface Filter {
-  type: "text" | "date" | "dropdown";
-  label: string;
-  value: string | null;
-  setValue: React.Dispatch<React.SetStateAction<string | null>>;
-  options?: { value: string; label: string }[];
-}
-
 const SampleDataManagement: React.FC = () => {
   const [filterType, setFilterType] = useState<string | null>(null);
-  const [filterDate, setFilterDate] = useState<string | null>(null);
-  const [filterName, setFilterName] = useState<string | null>(null);
   const [selectedRows, setSelectedRows] = useState<Set<number>>(new Set());
-  const [orderData, setOrderData] = useState<Order[]>(orders);
+  const [orderData, setOrderData] = useState<Order[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [itemsPerPage, setItemsPerPage] = useState<number>(5);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
-  const filterOptions = Array.from(
-    new Set(orders.map((order) => order.type))
-  ).map((type) => ({
-    value: type,
-    label: type,
-  }));
+  useEffect(() => {
+    const fetchOrders = async () => {
+      setIsLoading(true);
+      try {
+        // Simulate an API call with a delay
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+        setOrderData(orders);
+      } catch (error) {
+        console.error("Error fetching orders:", error);
+        setOrderData([]);
+      } finally {
+        setIsLoading(false);
+      }
+    };
 
-  const filters: Filter[] = [
-    {
-      type: "date",
-      label: "Filter by Date",
-      value: filterDate,
-      setValue: setFilterDate,
-    },
-    {
-      type: "dropdown",
-      label: "Order Type",
-      value: filterType,
-      setValue: setFilterType,
-      options: filterOptions,
-    },
-    {
-      type: "text",
-      label: "Customer Name",
-      value: filterName,
-      setValue: setFilterName,
-    },
-  ];
+    fetchOrders();
+  }, []);
 
-  const filteredOrders = orderData.filter((order) => {
-    return (
-      (!filterType || order.type === filterType) &&
-      (!filterDate || order.date === filterDate) &&
-      (!filterName ||
-        order.name.toLowerCase().includes(filterName.toLowerCase()))
+  const filterOptions = useMemo(() => {
+    return Array.from(new Set(orderData.map((order) => order.type))).map(
+      (type) => ({
+        value: type,
+        label: type,
+      })
     );
-  });
+  }, [orderData]);
 
-  const totalPages = Math.ceil(filteredOrders.length / itemsPerPage);
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const paginatedOrders = filteredOrders.slice(
-    startIndex,
-    startIndex + itemsPerPage
+  const filters: Filter[] = useMemo(
+    () => [
+      {
+        type: "dropdown",
+        label: "Type",
+        value: filterType,
+        setValue: setFilterType,
+        options: filterOptions,
+      },
+    ],
+    [filterType, filterOptions]
   );
 
-  const handlePageChange = (page: number) => {
-    if (page >= 1 && page <= totalPages) {
-      setCurrentPage(page);
-    }
-  };
+  const handleExportData = useCallback(() => {
+    console.log("Exporting data...", orderData);
+  }, [orderData]);
 
-  const handleNextPage = () => handlePageChange(currentPage + 1);
-  const handlePreviousPage = () => handlePageChange(currentPage - 1);
-  const handleFirstPage = () => handlePageChange(1);
-  const handleLastPage = () => handlePageChange(totalPages);
-
-  const handleResetFilter = () => {
-    setFilterType(null);
-    setFilterDate(null);
-    setFilterName(null);
-  };
-
-  const handleExportData = () => {
-    console.log("Exporting data...", filteredOrders);
-  };
-
-  const handleEditRow = (row: Order, index: number) => {
+  const handleEditRow = useCallback((row: Order, index: number) => {
     console.log("Editing row:", row);
-  };
+  }, []);
 
-  const handleDeleteRow = (index: number) => {
-    console.log("Deleting row at index:", index);
+  const handleDeleteRow = useCallback((index: number) => {
     setOrderData((prevData) => prevData.filter((_, i) => i !== index));
-  };
+  }, []);
 
-  const handleBulkDelete = () => {
+  const handleBulkDelete = useCallback(() => {
     if (selectedRows.size > 0) {
-      console.log("Deleting selected rows:", Array.from(selectedRows));
       setOrderData((prevData) =>
         prevData.filter((_, index) => !selectedRows.has(index))
       );
       setSelectedRows(new Set());
     }
-  };
+  }, [selectedRows]);
 
-  const handleItemsPerPageChange = (items: number) => {
+  const handleItemsPerPageChange = useCallback((items: number) => {
     setCurrentPage(1);
     setItemsPerPage(items);
-  };
+  }, []);
 
-  const handlePrimaryAction = () => {
-    console.log("Primary action triggered...");
-  };
-
-  const getStatusBadgeProps = (status: Order["status"]) => {
+  const getStatusBadgeProps = useCallback((status: Order["status"]) => {
     switch (status) {
       case "Completed":
         return {
@@ -274,31 +233,35 @@ const SampleDataManagement: React.FC = () => {
           icon: null,
         };
     }
-  };
+  }, []);
 
-  const columns: ColumnDefinition<Order>[] = [
-    { header: "ID", accessor: "id" },
-    { header: "NAME", accessor: "name" },
-    { header: "ADDRESS", accessor: "address" },
-    { header: "DATE", accessor: "date" },
-    { header: "TYPE", accessor: "type" },
-    {
-      header: "STATUS",
-      accessor: "status",
-      render: (status) => {
-        const { className, icon } = getStatusBadgeProps(
-          status as Order["status"]
-        );
-        return (
-          <StatusBadge
-            status={status as Order["status"]}
-            className={className}
-            icon={icon}
-          />
-        );
+  const columns: ColumnDefinition<Order>[] = useMemo(
+    () => [
+      { header: "ID", accessor: "id", sortable: true },
+      { header: "NAME", accessor: "name", sortable: true },
+      { header: "ADDRESS", accessor: "address", sortable: true },
+      { header: "DATE", accessor: "date", sortable: true },
+      { header: "TYPE", accessor: "type", sortable: true },
+      {
+        header: "STATUS",
+        accessor: "status",
+        sortable: true,
+        render: (status) => {
+          const { className, icon } = getStatusBadgeProps(
+            status as Order["status"]
+          );
+          return (
+            <StatusBadge
+              status={status as Order["status"]}
+              className={className}
+              icon={icon}
+            />
+          );
+        },
       },
-    },
-  ];
+    ],
+    [getStatusBadgeProps]
+  );
 
   const getDeleteSelectedButtonConfig = (): ButtonConfig[] => {
     if (selectedRows.size > 0) {
@@ -314,24 +277,11 @@ const SampleDataManagement: React.FC = () => {
     return [];
   };
 
-  // Buttons configuration
   const buttons: ButtonConfig[] = [
-    {
-      label: "Reset Filter",
-      onClick: handleResetFilter,
-      variant: "destructive",
-      size: "sm",
-    },
     {
       label: "Export Data",
       onClick: handleExportData,
       variant: "secondary",
-      size: "sm",
-    },
-    {
-      label: "Add New Item",
-      onClick: handlePrimaryAction,
-      variant: "default",
       size: "sm",
     },
     ...getDeleteSelectedButtonConfig(),
@@ -340,28 +290,26 @@ const SampleDataManagement: React.FC = () => {
   return (
     <div className="flex flex-col gap-4 p-8">
       <h1 className="text-2xl font-bold">Order Management</h1>
-
-      <ActionControls filters={filters} buttons={buttons} />
-
-      <Table
-        columns={columns}
-        data={paginatedOrders}
-        selectable
-        editable
-        onEditRow={handleEditRow}
-        onDeleteRow={handleDeleteRow}
-        selectedRows={selectedRows}
-        setSelectedRows={setSelectedRows}
-        currentPage={currentPage}
-        totalPages={totalPages}
-        onNextPage={handleNextPage}
-        onPreviousPage={handlePreviousPage}
-        onFirstPage={handleFirstPage}
-        onLastPage={handleLastPage}
-        onPageChange={handlePageChange}
-        itemsPerPage={itemsPerPage}
-        onItemsPerPageChange={handleItemsPerPageChange}
-      />
+      {isLoading ? (
+        <div>Loading...</div>
+      ) : (
+        <Table<Order>
+          columns={columns}
+          data={orderData}
+          filters={filters}
+          buttons={buttons}
+          selectable
+          editable
+          onEditRow={handleEditRow}
+          onDeleteRow={handleDeleteRow}
+          selectedRows={selectedRows}
+          setSelectedRows={setSelectedRows}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+          itemsPerPage={itemsPerPage}
+          onItemsPerPageChange={handleItemsPerPageChange}
+        />
+      )}
     </div>
   );
 };
