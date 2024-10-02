@@ -11,6 +11,7 @@ import {
   Users,
   Settings as AdminSettings,
   ListOrdered,
+  Book,
 } from "lucide-react";
 import { DashboardLayout } from "../../components/dashboard-layout/dashboard-layout";
 import { UserProvider, useUser } from "@/src/utils/user/user-context";
@@ -53,6 +54,12 @@ const AuthLayoutContent: React.FC<AuthLayoutProps> = ({ children }) => {
           href: "/profile",
           enabled: true,
           icon: <User size={20} />,
+        },
+        {
+          label: "Books",
+          href: "/books",
+          enabled: true,
+          icon: <Book size={20} />,
         },
         {
           label: "Sample Data",
