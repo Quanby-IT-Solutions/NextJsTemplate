@@ -29,8 +29,9 @@ export const AuthSidebar: React.FC<{
           return (
             <div key={link.label}>
               <div
-                className={`flex items-center justify-between p-2 rounded-lg cursor-pointer text-muted-foreground hover:bg-accent hover:text-accent-foreground transition-all duration-200 ${hasSubLinks ? "pr-4" : ""
-                  }`}
+                className={`flex items-center justify-between p-2 rounded-lg cursor-pointer text-muted-foreground hover:bg-accent hover:text-accent-foreground transition-all duration-200 ${
+                  hasSubLinks ? "pr-4" : ""
+                }`}
                 onClick={() => hasSubLinks && handleToggle(link.label)}
               >
                 <div
@@ -68,8 +69,9 @@ export const AuthSidebar: React.FC<{
 
   return (
     <div
-      className={`h-screen transition-all duration-300 bg-background border-r border-border ${isSidebarOpen ? "w-64" : "w-20"
-        }`}
+      className={`h-screen transition-all duration-300 bg-background border-r border-border ${
+        isSidebarOpen ? "w-64" : "w-20"
+      }`}
     >
       <div className="flex items-center justify-between p-4 border-b border-border">
         {isSidebarOpen && <span className="text-lg font-bold">Logo</span>}
