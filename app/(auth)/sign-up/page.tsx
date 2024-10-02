@@ -11,12 +11,16 @@ export default function SignUpPage({
     <AuthLogin
       searchParams={searchParams}
       logoSrc={mLogo}
-      backgroundImageSrc={
-        "https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjEwMTYtYy0wOF8xLWtzaDZtemEzLmpwZw.jpg"
-      }
       isDevelopment={true}
       showSignIn={true}
       showSignUp={true}
+      initialForm={"signUp"}
+      signInBackgroundImageSrc={
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2QBh1DoFAHgDhUuL6pGJy9PFvZVv_6_xV-A&s"
+      }
+      signUpBackgroundImageSrc={
+        "https://img.freepik.com/free-vector/gradient-network-connection-background_23-2148881320.jpg"
+      }
     />
   );
 }
