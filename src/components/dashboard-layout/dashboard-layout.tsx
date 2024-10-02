@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 import { AuthSidebar, SidebarLink } from "../auth-sidebar/auth-sidebar";
-import { Header } from "../header/header";
+import { Header } from "../header/Header";
 
 export interface DashboardLayoutProps {
   className?: string;
@@ -25,7 +25,9 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({
         isAuthenticated={isAuthenticated}
         showLinks={false}
       />
-      <main className="flex-1 p-4 bg-background container mx-auto">{children}</main>
+      <main className="flex-1 p-4 bg-background container mx-auto">
+        {children}
+      </main>
     </div>
   </div>
 );

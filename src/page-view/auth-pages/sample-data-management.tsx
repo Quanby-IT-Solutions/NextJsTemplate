@@ -147,7 +147,7 @@ interface Filter {
   options?: { value: string; label: string }[];
 }
 
-const OrderManagement: React.FC = () => {
+const SampleDataManagement: React.FC = () => {
   const [filterType, setFilterType] = useState<string | null>(null);
   const [filterDate, setFilterDate] = useState<string | null>(null);
   const [filterName, setFilterName] = useState<string | null>(null);
@@ -365,4 +365,4 @@ const OrderManagement: React.FC = () => {
   );
 };
 
-export default OrderManagement;
+export default SampleDataManagement;
