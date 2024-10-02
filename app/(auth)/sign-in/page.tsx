@@ -1,6 +1,6 @@
-// import { Login } from "@/src/components/Login";
 import { Message } from "@/src/components/form-message/FormMessage";
-import LoginPage from "@/src/components/auth-login-registration/LoginPage";
+import AuthLogin from "@/src/page-view/auth-pages/auth-login";
+import mLogo from "../../../public/img/mar-logo.png";
 
 export default function SignInPage({
   searchParams,
@@ -8,21 +8,15 @@ export default function SignInPage({
   searchParams: Message;
 }) {
   return (
-    <div className="">
-      <LoginPage
-        searchParams={searchParams}
-        logoSrc={
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJKO70hopq8eNzDydh88GhyKEn8cHMtxh-pA&s"
-        }
-        backgroundImageSrc={
-          "https://static.vecteezy.com/system/resources/thumbnails/022/575/456/small_2x/chamomile-flower-field-camomile-in-the-nature-field-of-camomiles-at-sunny-day-at-nature-camomile-daisy-flowers-in-summer-day-chamomile-flowers-field-wide-background-in-sun-light-generative-ai-photo.jpg"
-        }
-        isDevelopment={false}
-        photoCredit={{
-          photographer: "",
-          photographerLink: "",
-        }}
-      />
-    </div>
+    <AuthLogin
+      searchParams={searchParams}
+      logoSrc={mLogo}
+      backgroundImageSrc={
+        "https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjEwMTYtYy0wOF8xLWtzaDZtemEzLmpwZw.jpg"
+      }
+      isDevelopment={true}
+      showSignIn={true}
+      showSignUp={true}
+    />
   );
 }
