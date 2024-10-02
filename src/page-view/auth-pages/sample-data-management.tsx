@@ -1,3 +1,4 @@
+// Always use this template, plus replacing the Orders as the Proper data of your table
 "use client";
 
 import { ColumnDefinition, Table } from "@/src/components/table/Table";
