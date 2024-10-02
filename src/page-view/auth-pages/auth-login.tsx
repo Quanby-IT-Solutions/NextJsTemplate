@@ -2,46 +2,48 @@
 
 import React, { useState } from "react";
 import Header from "../../components/auth-login-registration/Header";
-import LoginForm from "../../components/auth-login-registration/Form";
 import GuestSignIn from "../../components/auth-login-registration/GuestSignIn";
-import Footer from "../../components/auth-login-registration/Footer";
 import { Message } from "../../components/form-message/FormMessage";
 import { StaticImageData } from "next/image";
-import SignUpForm from "../../components/auth-login-registration/SignupForm";
+import AuthForm from "@/src/components/auth-login-registration/AuthForm";
 
 interface AuthLoginProps {
   searchParams: Message;
   logoSrc: string | StaticImageData;
-  backgroundImageSrc: string;
+  signInBackgroundImageSrc: string;
+  signUpBackgroundImageSrc: string;
   isDevelopment: boolean;
   showSignIn?: boolean;
   showSignUp?: boolean;
+  initialForm?: "signIn" | "signUp";
 }
 
 const AuthLogin: React.FC<AuthLoginProps> = ({
   searchParams,
   logoSrc,
-  backgroundImageSrc,
+  signInBackgroundImageSrc,
+  signUpBackgroundImageSrc,
   isDevelopment,
   showSignIn = true,
   showSignUp = true,
+  initialForm = "signIn",
 }) => {
-  const [formType, setFormType] = useState<"signIn" | "signUp">("signIn");
+  const [formType, setFormType] = useState<"signIn" | "signUp">(initialForm);
 
-  const handleSignIn = () => {
-    setFormType("signIn");
-  };
-
-  const handleSignUp = () => {
-    setFormType("signUp");
-  };
+  const handleSignIn = () => setFormType("signIn");
+  const handleSignUp = () => setFormType("signUp");
 
   return (
     <div className="flex w-full min-h-screen">
+      {/* Dynamic Background for Sign In/Sign Up */}
       <div className="hidden md:flex flex-1">
         <img
           loading="lazy"
-          src={backgroundImageSrc}
+          src={
+            formType === "signIn"
+              ? signInBackgroundImageSrc
+              : signUpBackgroundImageSrc
+          }
           alt="Background image"
           className="object-cover w-full h-full"
         />
@@ -59,10 +61,12 @@ const AuthLogin: React.FC<AuthLoginProps> = ({
           />
 
           <div className="flex flex-col items-center flex-grow mt-12 w-full">
-            {formType === "signIn" && <LoginForm searchParams={searchParams} />}
+            {formType === "signIn" && (
+              <AuthForm searchParams={searchParams} formType={"signIn"} />
+            )}
             {formType === "signUp" && (
-              <SignUpForm searchParams={searchParams} />
-            )}{" "}
+              <AuthForm searchParams={searchParams} formType={"signUp"} />
+            )}
             {formType === "signIn" && (
               <GuestSignIn
                 guestOptions={["Guest Admin", "Guest User"]}
@@ -70,12 +74,6 @@ const AuthLogin: React.FC<AuthLoginProps> = ({
               />
             )}
           </div>
-
-          <Footer
-            logoSrc={typeof logoSrc === "string" ? logoSrc : logoSrc.src}
-            logoLink={"/"}
-            copyrightText={"© 2024 Mar"}
-          />
         </div>
       </section>
     </div>

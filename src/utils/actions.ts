@@ -91,13 +91,20 @@ export const signInAction = async (formData: FormData) => {
     password,
   });
 
-  // If there's an error, redirect with an error message
+  // If there's an error, return an error message
   if (error) {
-    return encodedRedirect("error", "/sign-in", error.message);
+    console.error(error.message);
+    return { error: error.message };
   }
 
-  // Redirect the user to the dashboard upon successful sign-in
-  return redirect("/dashboard");
+  // If successful, return success object
+  return { success: true };
+
+  /**
+   * The old code is:
+   * -> (Redirect the user to the dashboard upon successful sign-in)
+   * return redirect("/dashboard");
+   */
 };
 
 /**

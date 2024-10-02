@@ -36,18 +36,6 @@ const GuestSignIn: React.FC<GuestSignInProps> = ({
               </Button>
             ))}
           </div>
-
-          <p className="flex gap-2 items-start mt-6 text-sm tracking-wide leading-loose">
-            <span className="text-zinc-900 dark:text-zinc-100">
-              Don't have an account?
-            </span>
-            <Link
-              href="#"
-              className="text-blue-600 dark:text-blue-400 hover:underline"
-            >
-              Sign up now
-            </Link>
-          </p>
         </div>
       )}
     </>
