@@ -3,7 +3,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Button } from "../button/Button";
-import { ThemeSwitcher } from "../theme-switcher/ThemeSwitcher";
+import { ThemeChangerButton } from "../theme-switcher/ThemeChange";
+
 import Link from "next/link";
 
 interface HeaderProps {
@@ -44,30 +45,29 @@ const Header: React.FC<HeaderProps> = ({
         />
       </Link>
 
-      <div className="hidden md:flex items-center space-x-6">
-        <ThemeSwitcher aria-label="Switch Theme" />
+      <div className="hidden md:flex items-center space-x-2">
+        <ThemeChangerButton aria-label="Switch Theme" />
 
         {showSignIn && onSignIn && (
-          <Button
-            className={`px-4 py-2 rounded-full transition-all font-semibold border border-solid ${
-              activeForm === "signIn"
-                ? "bg-blue-600 text-white border-blue-600"
-                : "bg-transparent text-neutral-700 dark:text-neutral-300 border-neutral-400 hover:bg-blue-100 dark:hover:bg-blue-800 hover:text-neutral-900"
-            }`}
+          <Button size="sm" variant={"outline"}
+            className={`border border-solid ${activeForm === "signIn"
+              ? "bg-blue-600 text-white border-blue-600"
+              : "bg-transparent text-neutral-700 dark:text-neutral-300 border-neutral-400 hover:bg-blue-100 dark:hover:bg-blue-800 hover:text-neutral-900"
+              }`}
             onClick={onSignIn}
             aria-label="Sign In"
           >
             Sign In
           </Button>
+
         )}
 
         {showSignUp && onSignUp && (
-          <Button
-            className={`px-4 py-2 rounded-full transition-all font-semibold border border-solid ${
-              activeForm === "signUp"
-                ? "bg-green-600 text-white border-green-600"
-                : "bg-transparent text-neutral-700 dark:text-neutral-300 border-neutral-400 hover:bg-green-100 dark:hover:bg-green-800 hover:text-neutral-900"
-            }`}
+          <Button size="sm" variant={"outline"}
+            className={`border border-solid ${activeForm === "signUp"
+              ? "bg-green-600 text-white border-green-600"
+              : "bg-transparent text-neutral-700 dark:text-neutral-300 border-neutral-400 hover:bg-green-100 dark:hover:bg-green-800 hover:text-neutral-900"
+              }`}
             onClick={onSignUp}
             aria-label="Sign Up"
           >
