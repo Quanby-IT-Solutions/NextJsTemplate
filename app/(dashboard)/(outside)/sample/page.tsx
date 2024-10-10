@@ -1,6 +1,6 @@
 import { Message } from "@/src/components/form-message/FormMessage";
-import { AuthLayout } from "@/src/page-view/auth-pages/auth-layout";
-import SampleDataManagement from "@/src/page-view/auth-pages/sample-data-management";
+import { AuthLayout } from "@/src/full-page/auth/auth-layout";
+import SampleDataManagement from "@/src/full-page/auth/sample-data-management";
 
 export default function SamplePage({
   searchParams,

@@ -1,5 +1,5 @@
 import { Message } from "@/src/components/form-message/FormMessage";
-import AuthLogin from "@/src/page-view/auth-pages/auth-login";
+import AuthLogin from "@/src/full-page/auth/auth-login";
 import mLogo from "../../../public/img/mar-logo.png";
 
 export default function SignUpPage({
