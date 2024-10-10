@@ -1,96 +1,58 @@
-Here's a general-purpose template in Markdown for your project using Supabase and Next.js. It includes full authentication functionality, tailored for all future projects:
+# Next.js and Supabase Company Template
 
 <p align="center">
- The fastest way to build apps with Next.js and Supabase, featuring full authentication out of the box
+  A future-proof template built with Next.js and Supabase, designed for all modern web applications within the company, featuring scalability, minimalistic design, and full authentication.
 </p>
 
 <p align="center">
   <a href="#features"><strong>Features</strong></a> ·
-  <a href="#demo"><strong>Demo</strong></a> ·
-  <a href="#deploy-to-vercel"><strong>Deploy to Vercel</strong></a> ·
-  <a href="#clone-and-run-locally"><strong>Clone and run locally</strong></a> ·
-  <a href="#feedback-and-issues"><strong>Feedback and issues</strong></a> ·
-  <a href="#more-supabase-examples"><strong>More Examples</strong></a>
+  <a href="#usage"><strong>Usage</strong></a> ·
+  <a href="#customization"><strong>Customization</strong></a> ·
+  <a href="#feedback-and-issues"><strong>Feedback and issues</strong></a>
 </p>
+
 <br/>
 
 ## Features
 
-- Works seamlessly across the entire [Next.js](https://nextjs.org) stack:
-  - App Router
-  - Pages Router
-  - Middleware
-  - Client and Server components
-- Full authentication setup with Supabase Auth using cookies
-- Tailwind CSS for easy and modern styling
-- UI components powered by [shadcn/ui](https://ui.shadcn.com/)
-- Ready for deployment with [Supabase Vercel Integration and Vercel deploy](#deploy-your-own)
-  - Automatic configuration of environment variables in Vercel
+- **Next.js Stack**: Built on Next.js, leveraging both App Router and Pages Router with full support for Middleware and both Client and Server components.
+- **Supabase Authentication**: Full user authentication integration with Supabase Auth using cookies for session handling.
+- **Minimalist UI Design**: The template uses Tailwind CSS for styling and shadcn/ui for reusable components, focusing on a simple, clean, and modern design.
+- **Future-Proof**: Designed to scale with future technologies and evolve with modern web standards.
 
-## Demo
+## Usage
 
-Check out a live demo of this template at [your-project-demo-url.vercel.app](https://your-project-demo-url.vercel.app/).
+This template is designed to be the foundation for all future company web projects. Follow the steps below to get started:
 
-## Deploy to Vercel
-
-Deploying to Vercel will walk you through creating a Supabase account and project. After setting up the Supabase integration, all environment variables will be auto-configured.
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fyour-repo%2Fnextjs-supabase-template&project-name=nextjs-supabase-template&repository-name=nextjs-supabase-template&demo-title=nextjs-supabase-template&demo-description=This+template+configures+Supabase+Auth+with+cookies%2C+making+the+user%27s+session+available+throughout+Next.js&demo-url=https%3A%2F%2Fyour-project-demo-url.vercel.app%2F&external-id=https%3A%2F%2Fgithub.com%2Fvercel%2Fnext.js%2Ftree%2Fcanary%2Fexamples%2Fwith-supabase)
-
-This will also clone the template to your GitHub repository. You can then clone it locally for further development.
-
-To only develop locally without deployment, follow the steps below.
-
-## Clone and run locally
-
-1. Create a Supabase project from the [Supabase dashboard](https://database.new).
-2. Use the Supabase Starter template to create a Next.js app:
+1. Clone the repository to your local machine:
 
    ```bash
-   npx create-next-app -e with-supabase
+   git clone https://github.com/Quanby-IT-Solutions/NextJsTemplate
+   cd NextJsTemplate
    ```
 
-3. Change into the app's directory:
+2. Install the dependencies:
 
    ```bash
-   cd name-of-new-app
+   npm install
    ```
 
-4. Rename `.env.local.example` to `.env.local` and add the following details:
+3. Set up your environment variables by renaming `.env.local.example` to `.env.local` and filling in the necessary values.
 
-   ```
-   NEXT_PUBLIC_SUPABASE_URL=[YOUR SUPABASE PROJECT URL]
-   NEXT_PUBLIC_SUPABASE_ANON_KEY=[YOUR SUPABASE ANON API KEY]
-   ```
-
-   Both values can be found in your Supabase project's API settings [here](https://app.supabase.com/project/_/settings/api).
-5. Run the development server:
+4. Run the development server:
 
    ```bash
    npm run dev
    ```
 
-   Your project will now be live at [localhost:3000](http://localhost:3000/).
-6. Customize the UI by modifying `components.json` or reinstalling [shadcn/ui](https://ui.shadcn.com/docs/installation/next) as needed.
+   The project will now be live at [localhost:3000](http://localhost:3000/).
 
-> Refer to [Supabase&#39;s Local Development Guide](https://supabase.com/docs/guides/getting-started/local-development) for running Supabase locally.
+## Customization
+
+- **UI Components**: Customize the UI by modifying existing components or adding new ones based on the company’s design needs. Components are styled using Tailwind CSS and powered by [shadcn/ui](https://ui.shadcn.com/).
+- **Authentication**: Authentication is handled through Supabase. You can modify the authentication flow by editing the corresponding API routes and Supabase settings.
+- **Color Scheme**: The template supports light and dark modes with color themes following a minimalist design. Modify the colors in `tailwind.config.js` as per company branding guidelines.
 
 ## Feedback and issues
 
-For any feedback or issues, please submit them through the [GitHub repository](https://github.com/supabase/supabase/issues/new/choose).
-
-## More Supabase examples
-
-- [Next.js Subscription Payments](https://github.com/vercel/nextjs-subscription-payments)
-- [Cookie-based Auth with Next.js 13 App Router](https://youtube.com/playlist?list=PL5S4mPUpp4OtMhpnp93EFSo42iQ40XjbF)
-- [Supabase Auth and Next.js App Router](https://github.com/supabase/supabase/tree/master/examples/auth/nextjs)
-
-This template provides a general-purpose approach for setting up a project with Supabase and Next.js, including full authentication, local development setup, and deployment with Vercel.
-
-## References
-
-[Dotenv and Cross-Var](https://www.genui.com/resources/env-variables-json#:~:text=By%20using%20dotenv%20and%20cross,it%20works%20across%20development%20platforms)
-
-[Basic Routes](https://www.youtube.com/watch?v=WaFBiDgqctY)
-
-[Codux Component Setup](https://help.codux.com/kb/en/article/creating-component-templates)
+For any feedback, suggestions, or issues, please reach out to the development team or submit a request through the internal company tracking system.

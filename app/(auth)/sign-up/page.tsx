@@ -1,6 +1,5 @@
 import { Message } from "@/src/components/form-message/FormMessage";
-import AuthLogin from "@/src/page-view/auth-pages/auth-login";
-import mLogo from "../../../public/img/mar-logo.png";
+import AuthLogin from "@/src/full-page/auth/auth-login";
 
 export default function SignUpPage({
   searchParams,
@@ -10,16 +9,16 @@ export default function SignUpPage({
   return (
     <AuthLogin
       searchParams={searchParams}
-      logoSrc={mLogo}
+      logoSrc={'/img/mar-logo.png'}
       isDevelopment={true}
       showSignIn={true}
       showSignUp={true}
       initialForm={"signUp"}
       signInBackgroundImageSrc={
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2QBh1DoFAHgDhUuL6pGJy9PFvZVv_6_xV-A&s"
+        "https://i.redd.it/9amxhi1vhh4c1.gif"
       }
       signUpBackgroundImageSrc={
-        "https://img.freepik.com/free-vector/gradient-network-connection-background_23-2148881320.jpg"
+        "https://storage.ko-fi.com/cdn/useruploads/fec447dc-50ed-443a-9e66-e6a855557d63_lethalcompanyship.gif"
       }
     />
   );

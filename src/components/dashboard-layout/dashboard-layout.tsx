@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 import { AuthSidebar, SidebarLink } from "../auth-sidebar/auth-sidebar";
-import { Header } from "../header/Header";
+import { AuthHeader } from "../auth-header/AuthHeader";
 
 export interface DashboardLayoutProps {
   className?: string;
@@ -20,7 +20,7 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({
   <div className={`flex ${className}`}>
     <AuthSidebar links={sidebarLinks} isAuthenticated={isAuthenticated} />
     <div className="flex-1 flex flex-col">
-      <Header
+      <AuthHeader
         websiteName={websiteName}
         isAuthenticated={isAuthenticated}
         showLinks={false}

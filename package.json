@@ -7,6 +7,7 @@
     "clean": "pnpm store prune"
   },
   "dependencies": {
+    "@headlessui/react": "^2.1.9",
     "@nivo/bar": "^0.87.0",
     "@nivo/boxplot": "^0.87.0",
     "@nivo/bullet": "^0.87.0",
