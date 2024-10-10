@@ -1,0 +1,204 @@
+{
+  "courses": [
+    {
+      "id": 1,
+      "name": "Introduction to Computer Science",
+      "code": "CS101",
+      "credits": 3,
+      "department": "Computer Science",
+      "description": "An introductory course to computer science, focusing on programming and computational thinking.",
+      "imageUrl": "https://via.placeholder.com/150/0000FF/FFFFFF?text=CS101",
+      "isActive": true
+    },
+    {
+      "id": 2,
+      "name": "Calculus I",
+      "code": "MATH101",
+      "credits": 4,
+      "department": "Mathematics",
+      "description": "An introductory course in calculus, covering limits, derivatives, and integrals.",
+      "imageUrl": "https://via.placeholder.com/150/FF0000/FFFFFF?text=MATH101",
+      "isActive": true
+    },
+    {
+      "id": 3,
+      "name": "General Chemistry",
+      "code": "CHEM101",
+      "credits": 4,
+      "department": "Chemistry",
+      "description": "An introductory course in general chemistry, focusing on chemical reactions and lab work.",
+      "imageUrl": "https://via.placeholder.com/150/00FF00/FFFFFF?text=CHEM101",
+      "isActive": false
+    },
+    {
+      "id": 4,
+      "name": "Introduction to Psychology",
+      "code": "PSY101",
+      "credits": 3,
+      "department": "Psychology",
+      "description": "Introduction to the study of human behavior and mental processes.",
+      "imageUrl": "https://via.placeholder.com/150/FF00FF/FFFFFF?text=PSY101",
+      "isActive": true
+    },
+    {
+      "id": 5,
+      "name": "World History",
+      "code": "HIST101",
+      "credits": 3,
+      "department": "History",
+      "description": "A broad overview of world history, from ancient civilizations to the modern era.",
+      "imageUrl": "https://via.placeholder.com/150/FFFF00/FFFFFF?text=HIST101",
+      "isActive": true
+    },
+    {
+      "id": 6,
+      "name": "Principles of Economics",
+      "code": "ECON101",
+      "credits": 3,
+      "department": "Economics",
+      "description": "Basic principles of microeconomics and macroeconomics.",
+      "imageUrl": "https://via.placeholder.com/150/00FFFF/FFFFFF?text=ECON101",
+      "isActive": false
+    },
+    {
+      "id": 7,
+      "name": "Introduction to Sociology",
+      "code": "SOC101",
+      "credits": 3,
+      "department": "Sociology",
+      "description": "An overview of societal structures and human interaction.",
+      "imageUrl": "https://via.placeholder.com/150/FF8000/FFFFFF?text=SOC101",
+      "isActive": true
+    },
+    {
+      "id": 8,
+      "name": "English Composition",
+      "code": "ENG101",
+      "credits": 3,
+      "department": "English",
+      "description": "Focuses on improving writing skills, with an emphasis on essays and compositions.",
+      "imageUrl": "https://via.placeholder.com/150/800080/FFFFFF?text=ENG101",
+      "isActive": true
+    },
+    {
+      "id": 9,
+      "name": "Introduction to Philosophy",
+      "code": "PHIL101",
+      "credits": 3,
+      "department": "Philosophy",
+      "description": "An exploration of fundamental philosophical questions and theories.",
+      "imageUrl": "https://via.placeholder.com/150/008080/FFFFFF?text=PHIL101",
+      "isActive": false
+    },
+    {
+      "id": 10,
+      "name": "Biology I",
+      "code": "BIO101",
+      "credits": 4,
+      "department": "Biology",
+      "description": "An introduction to biological principles, including cell biology and genetics.",
+      "imageUrl": "https://via.placeholder.com/150/FFC0CB/FFFFFF?text=BIO101",
+      "isActive": true
+    },
+    {
+      "id": 11,
+      "name": "Introduction to Art",
+      "code": "ART101",
+      "credits": 3,
+      "department": "Art",
+      "description": "An introductory course exploring various forms of art and their historical significance.",
+      "imageUrl": "https://via.placeholder.com/150/000000/FFFFFF?text=ART101",
+      "isActive": true
+    },
+    {
+      "id": 12,
+      "name": "Introduction to Music",
+      "code": "MUS101",
+      "credits": 3,
+      "department": "Music",
+      "description": "A survey of music history and theory, focusing on different genres and periods.",
+      "imageUrl": "https://via.placeholder.com/150/FFFFFF/000000?text=MUS101",
+      "isActive": true
+    },
+    {
+      "id": 13,
+      "name": "Introduction to Political Science",
+      "code": "POL101",
+      "credits": 3,
+      "department": "Political Science",
+      "description": "A foundational course in political systems, ideologies, and government structures.",
+      "imageUrl": "https://via.placeholder.com/150/FF4500/FFFFFF?text=POL101",
+      "isActive": true
+    },
+    {
+      "id": 14,
+      "name": "Introduction to Anthropology",
+      "code": "ANTH101",
+      "credits": 3,
+      "department": "Anthropology",
+      "description": "An exploration of human societies, cultures, and their development.",
+      "imageUrl": "https://via.placeholder.com/150/00CED1/FFFFFF?text=ANTH101",
+      "isActive": true
+    },
+    {
+      "id": 15,
+      "name": "Introduction to Astronomy",
+      "code": "ASTR101",
+      "credits": 3,
+      "department": "Astronomy",
+      "description": "A beginner's guide to the study of celestial objects and the universe.",
+      "imageUrl": "https://via.placeholder.com/150/FFD700/FFFFFF?text=ASTR101",
+      "isActive": true
+    },
+    {
+      "id": 16,
+      "name": "Introduction to Environmental Science",
+      "code": "ENV101",
+      "credits": 3,
+      "department": "Environmental Science",
+      "description": "Covers key topics in environmental science, including ecosystems, pollution, and conservation.",
+      "imageUrl": "https://via.placeholder.com/150/98FB98/FFFFFF?text=ENV101",
+      "isActive": false
+    },
+    {
+      "id": 17,
+      "name": "Introduction to Business",
+      "code": "BUS101",
+      "credits": 3,
+      "department": "Business",
+      "description": "An overview of business principles and practices, including management and entrepreneurship.",
+      "imageUrl": "https://via.placeholder.com/150/FF69B4/FFFFFF?text=BUS101",
+      "isActive": true
+    },
+    {
+      "id": 18,
+      "name": "Introduction to Marketing",
+      "code": "MKT101",
+      "credits": 3,
+      "department": "Marketing",
+      "description": "An introduction to marketing strategies, consumer behavior, and market research.",
+      "imageUrl": "https://via.placeholder.com/150/ADD8E6/FFFFFF?text=MKT101",
+      "isActive": true
+    },
+    {
+      "id": 19,
+      "name": "Introduction to Finance",
+      "code": "FIN101",
+      "credits": 3,
+      "department": "Finance",
+      "description": "Covers basic finance principles, including investment, budgeting, and financial analysis.",
+      "imageUrl": "https://via.placeholder.com/150/800000/FFFFFF?text=FIN101",
+      "isActive": false
+    },
+    {
+      "id": 20,
+      "name": "Introduction to Engineering",
+      "code": "ENGR101",
+      "credits": 3,
+      "department": "Engineering",
+      "description": "Provides a broad overview of the engineering field, with an introduction to key concepts and disciplines.",
+      "imageUrl": "https://via.placeholder.com/150/B0E0E6/FFFFFF?text=ENGR101",
+      "isActive": true
+    }
+  ]
+}
