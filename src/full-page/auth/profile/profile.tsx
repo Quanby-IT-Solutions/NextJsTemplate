@@ -1,10 +1,14 @@
+"use client";
+
+import DashboardHeader from "@/src/components/dashboard/DashboardHeader";
 import ProfileForm from "@/src/components/profile/ProfileForm";
-import ProfileHeader from "@/src/components/profile/ProfileHeader";
 
 export const Profile: React.FC = () => {
   return (
     <>
-      <ProfileHeader />
+      <DashboardHeader
+        title="Profile"
+      />
       <ProfileForm />
     </>
   );
