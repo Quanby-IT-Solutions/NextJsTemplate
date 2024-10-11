@@ -5,8 +5,8 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import clsx from "clsx";
 import { Menu } from "@headlessui/react";
-import { ThemeChangerButton } from "../theme-switcher/ThemeChange";
 import { AuthButtons } from "../auth-button/AuthButton";
+import { ModeToggle } from "../theme-switcher/ThemeChange";
 
 export interface HomeHeaderSubLink {
     label: string;
@@ -124,7 +124,7 @@ export const HomeHeader: React.FC<HomeHeaderProps> = ({
                 </nav>
             )}
             <div className="flex items-center space-x-4">
-                <ThemeChangerButton />
+                <ModeToggle />
                 <AuthButtons />
             </div>
         </header>

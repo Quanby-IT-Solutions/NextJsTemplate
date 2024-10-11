@@ -200,5 +200,31 @@
       "imageUrl": "https://via.placeholder.com/150/B0E0E6/FFFFFF?text=ENGR101",
       "isActive": true
     }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password": "admin",
+      "firstName": "Admin",
+      "lastName": "User",
+      "role": "admin"
+    },
+    {
+      "id": 2,
+      "username": "instructor",
+      "password": "instructor",
+      "firstName": "John",
+      "lastName": "Doe",
+      "role": "instructor"
+    },
+    {
+      "id": 3,
+      "username": "student",
+      "password": "student",
+      "firstName": "Jane",
+      "lastName": "Smith",
+      "role": "student"
+    }
   ]
 }

@@ -1,11 +1,11 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
+
 import { motion } from "framer-motion";
 import { Button } from "../button/Button";
-import { ThemeChangerButton } from "../theme-switcher/ThemeChange";
-
-import Link from "next/link";
+import { ModeToggle } from "../theme-switcher/ThemeChange";
 
 interface HeaderProps {
   logoSrc: string;
@@ -46,7 +46,7 @@ const Header: React.FC<HeaderProps> = ({
       </Link>
 
       <div className="hidden md:flex items-center space-x-2">
-        <ThemeChangerButton aria-label="Switch Theme" />
+        <ModeToggle aria-label="Switch Theme" />
 
         {showSignIn && onSignIn && (
           <Button size="sm" variant={"outline"}

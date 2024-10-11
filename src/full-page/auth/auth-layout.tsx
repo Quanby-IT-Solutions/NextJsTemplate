@@ -11,7 +11,7 @@ import {
   Book,
   ShieldCheck,
 } from "lucide-react";
-import { DashboardLayout } from "../../components/dashboard-layout/dashboard-layout";
+import { DashboardLayout } from "../../components/dashboard/DashboardLayout";
 import { UserProvider, useUser } from "@/src/utils/user/user-context";
 
 interface AuthLayoutProps {

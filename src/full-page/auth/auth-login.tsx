@@ -60,12 +60,12 @@ const AuthLogin: React.FC<AuthLoginProps> = ({
             activeForm={formType}
           />
 
-          <div className="flex flex-col items-center flex-grow mt-12 w-full">
+          <div className="mt-12 w-full">
             {formType === "signIn" && (
-              <AuthForm searchParams={searchParams} formType={"signIn"} />
+              <AuthForm formType={"signIn"} />
             )}
             {formType === "signUp" && (
-              <AuthForm searchParams={searchParams} formType={"signUp"} />
+              <AuthForm formType={"signUp"} />
             )}
             {formType === "signIn" && (
               <GuestSignIn

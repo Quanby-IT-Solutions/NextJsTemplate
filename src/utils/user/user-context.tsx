@@ -1,19 +1,102 @@
 "use client";
 
-import { createContext, useContext, ReactNode, useState } from "react";
+import { createContext, useContext, ReactNode, useState, useEffect, useCallback } from "react";
+import { User } from '@supabase/supabase-js';
+import { createClient } from "../supabase/client";
+
+interface UserProfile {
+  id: string;
+  email: string;
+  first_name: string | null;
+  last_name: string | null;
+  organization_id: string | null;
+  bio: string | null;
+  avatar_url: string | null;
+  date_of_birth: string | null;
+  phone_number: string | null;
+  created_at: string | null;
+  updated_at: string | null;
+  status: 'online' | 'offline' | 'away';
+}
 
 interface UserContextProps {
-  user: any;
-  setUser: React.Dispatch<React.SetStateAction<any>>;
+  user: User | null;
+  setUser: React.Dispatch<React.SetStateAction<User | null>>;
+  profile: UserProfile | null;
+  refreshProfile: () => Promise<void>;
 }
 
 const UserContext = createContext<UserContextProps | undefined>(undefined);
 
 export const UserProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [user, setUser] = useState<any>(null);
+  const [user, setUser] = useState<User | null>(null);
+  const [profile, setProfile] = useState<UserProfile | null>(null);
+
+  const supabase = createClient();
+
+  const fetchProfile = useCallback(async (userId: string) => {
+    const { data, error } = await supabase
+      .from('users')
+      .select('*')
+      .eq('id', userId)
+      .single();
+
+    if (error) {
+      console.error('Error fetching user profile:', error);
+      return null;
+    }
+
+    return data as UserProfile;
+  }, [supabase]);
+
+  const refreshProfile = useCallback(async () => {
+    if (user) {
+      const updatedProfile = await fetchProfile(user.id);
+      if (updatedProfile) {
+        setProfile(updatedProfile);
+      }
+    }
+  }, [user, fetchProfile]);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const { data: { user } } = await supabase.auth.getUser();
+      setUser(user);
+
+      if (user) {
+        const userProfile = await fetchProfile(user.id);
+        setProfile(userProfile);
+      }
+    };
+
+    fetchUser();
+
+    const { data: authListener } = supabase.auth.onAuthStateChange(async (event, session) => {
+      const currentUser = session?.user ?? null;
+      setUser(currentUser);
+
+      if (currentUser) {
+        const userProfile = await fetchProfile(currentUser.id);
+        setProfile(userProfile);
+      } else {
+        setProfile(null);
+      }
+    });
+
+    return () => {
+      authListener.subscription.unsubscribe();
+    };
+  }, [supabase, fetchProfile]);
+
+  // Add this effect to update profile when user changes
+  useEffect(() => {
+    if (user) {
+      refreshProfile();
+    }
+  }, [user, refreshProfile]);
 
   return (
-    <UserContext.Provider value={{ user, setUser }}>
+    <UserContext.Provider value={{ user, setUser, profile, refreshProfile }}>
       {children}
     </UserContext.Provider>
   );
