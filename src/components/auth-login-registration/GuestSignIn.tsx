@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "../button/Button";
-import { Link } from "lucide-react";
+import { motion } from "framer-motion";
 
 interface GuestSignInProps {
   guestOptions: string[];
@@ -18,7 +18,12 @@ const GuestSignIn: React.FC<GuestSignInProps> = ({
   return (
     <>
       {isDevelopment && (
-        <div className="flex flex-col items-center mt-8 w-full">
+        <motion.div
+          className="flex flex-col items-center mt-8 w-full"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
           <div className="w-full bg-neutral-300 dark:bg-neutral-700 h-[1px]" />
 
           <p className="mt-8 mb-4 text-sm font-medium tracking-wide text-zinc-900 dark:text-zinc-100">
@@ -27,16 +32,22 @@ const GuestSignIn: React.FC<GuestSignInProps> = ({
 
           <div className="flex flex-wrap gap-4 w-full justify-center">
             {guestOptions.map((option) => (
-              <Button
+              <motion.div
                 key={option}
-                onClick={() => handleGuestSignIn(option)}
-                className="px-6 py-3 text-sm font-semibold text-white bg-blue-600 rounded-md hover:bg-blue-700 transition-all"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
-                {`${option}`}
-              </Button>
+                <Button
+                  onClick={() => handleGuestSignIn(option)}
+                  variant="default"
+                  size="sm"
+                >
+                  {option}
+                </Button>
+              </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
       )}
     </>
   );

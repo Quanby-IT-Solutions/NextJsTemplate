@@ -9,13 +9,13 @@ const defaultUrl = process.env.VERCEL_URL
 
 export const metadata = {
   metadataBase: new URL(defaultUrl),
-  title: "Q Template",
+  title: "Mar Template",
   description: "Meow Meow World",
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={GeistSans.className} suppressHydrationWarning>
+    <html lang="en" className={` "scroll-smooth focus:scroll-auto" ${GeistSans.className}`} suppressHydrationWarning>
       <body className="bg-background text-foreground select-none">
         <ThemeProvider
           attribute="class"

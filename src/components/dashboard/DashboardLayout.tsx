@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import { AuthSidebar, SidebarLink } from "../auth-sidebar/auth-sidebar";
+import { AuthSidebar, SidebarLink } from "../auth-sidebar/AuthSidebar";
 import { AuthHeader } from "../auth-header/AuthHeader";
 
 export interface DashboardLayoutProps {

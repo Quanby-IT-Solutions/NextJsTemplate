@@ -1,7 +1,7 @@
 import React from 'react';
 import { usePathname } from 'next/navigation';
-import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbPage, BreadcrumbSeparator } from '../breadcrumb/breadcrumb';
 import { UserGreeting } from "@/src/components/user-greeting/UserGreeting";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '../breadcrumb/Breadcrumb';
 
 interface DashboardHeaderProps {
     title: string;

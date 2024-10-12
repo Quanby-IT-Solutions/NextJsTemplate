@@ -1,5 +1,5 @@
 import { Message } from "@/src/components/form-message/FormMessage";
-import { AuthLayout } from "@/src/full-page/auth/auth-layout";
+import { AuthLayout } from "@/src/components/auth-layout/AuthLayout";
 import { Profile } from "@/src/full-page/auth/profile/profile";
 
 export default function ResetPasswordPage({

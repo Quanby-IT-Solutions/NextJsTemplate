@@ -1,7 +1,6 @@
 import React, { ReactNode, useState, useMemo, useEffect } from "react";
 import { Input } from "@/src/components/input/Input";
 import { Button, ButtonConfig } from "@/src/components/button/Button";
-import Tooltip from "@/src/components/tooltip/Tooltip";
 import {
   ChevronLeft,
   ChevronRight,
@@ -331,21 +330,6 @@ export const Table = <T extends Record<string, any>>({
                         key={`${rowIndex}-${String(column.accessor)}`}
                         className="p-3"
                       >
-                        {isLongText ? (
-                          <Tooltip content={cellValue as string}>
-                            <span className="block truncate">
-                              {column.render
-                                ? column.render(cellValue)
-                                : (cellValue as ReactNode)}
-                            </span>
-                          </Tooltip>
-                        ) : (
-                          <span className="block">
-                            {column.render
-                              ? column.render(cellValue)
-                              : (cellValue as ReactNode)}
-                          </span>
-                        )}
                       </td>
                     );
                   })}

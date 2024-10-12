@@ -1,12 +1,13 @@
 import React from "react";
-import { useForm } from "react-hook-form";
+import { useForm, FormProvider } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { motion } from "framer-motion";
 import { signUpSchema, signInSchema, AuthFormData } from "@/src/schemas/authFormSchema";
+import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "../form/Form";
 import { Button } from "../button/Button";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "../form/Form";
 import { useAuthForm } from "@/src/hooks/useAuthForm";
-import { Alert, AlertDescription } from "../alert/Alert";
 import { Input } from "../input/Input";
+import { Toaster } from "../ui/sonner";
 
 export interface AuthFormProps {
   className?: string;
@@ -17,42 +18,48 @@ const AuthForm: React.FC<AuthFormProps> = ({
   className = "",
   formType,
 }) => {
-  const form = useForm<AuthFormData>({
+  const formMethods = useForm<AuthFormData>({
     resolver: zodResolver(formType === "signUp" ? signUpSchema : signInSchema),
     defaultValues: formType === "signUp"
       ? { fullName: "", email: "", password: "", confirmPassword: "", formType: "signUp" }
       : { email: "", password: "", formType: "signIn" },
   });
 
-  const { onSubmit, isSubmitting, error } = useAuthForm(form);
+  const { onSubmit, isSubmitting } = useAuthForm(formMethods);
 
   return (
-    <div className={`space-y-8 ${className}`}>
-      <h1 className="text-2xl font-semibold text-center text-neutral-800 dark:text-neutral-100">
+    <motion.div
+      className={`space-y-8 ${className}`}
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+    >
+      <motion.h1
+        className="text-2xl font-semibold text-center"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2, duration: 0.6 }}
+      >
         {formType === "signUp" ? "Create an Account" : "Welcome Back!"}
-      </h1>
+      </motion.h1>
 
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-          {error && (
-            <Alert variant="destructive">
-              <AlertDescription>{error}</AlertDescription>
-            </Alert>
-          )}
-
+      <FormProvider {...formMethods}>
+        <motion.form
+          onSubmit={formMethods.handleSubmit(onSubmit)}
+          className="space-y-6"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.3, duration: 0.6 }}
+        >
           {formType === "signUp" && (
             <FormField
-              control={form.control}
+              control={formMethods.control}
               name="fullName"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Full Name</FormLabel>
                   <FormControl>
-                    <Input
-                      placeholder="John Doe"
-                      className="py-2 px-4 w-full rounded-md border border-neutral-300 dark:border-neutral-600 bg-neutral-50 dark:bg-neutral-800 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                      {...field}
-                    />
+                    <Input placeholder="John Doe" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -61,18 +68,13 @@ const AuthForm: React.FC<AuthFormProps> = ({
           )}
 
           <FormField
-            control={form.control}
+            control={formMethods.control}
             name="email"
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Email</FormLabel>
                 <FormControl>
-                  <Input
-                    type="email"
-                    placeholder="example@domain.com"
-                    className="py-2 px-4 w-full rounded-md border border-neutral-300 dark:border-neutral-600 bg-neutral-50 dark:bg-neutral-800 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                    {...field}
-                  />
+                  <Input type="email" placeholder="example@domain.com" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -80,7 +82,7 @@ const AuthForm: React.FC<AuthFormProps> = ({
           />
 
           <FormField
-            control={form.control}
+            control={formMethods.control}
             name="password"
             render={({ field }) => (
               <FormItem>
@@ -88,8 +90,7 @@ const AuthForm: React.FC<AuthFormProps> = ({
                 <FormControl>
                   <Input
                     type="password"
-                    placeholder="Your password"
-                    className="py-2 px-4 w-full rounded-md border border-neutral-300 dark:border-neutral-600 bg-neutral-50 dark:bg-neutral-800 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                    placeholder={formType === "signUp" ? "Minimum 8 characters" : "Your password"}
                     {...field}
                   />
                 </FormControl>
@@ -100,18 +101,13 @@ const AuthForm: React.FC<AuthFormProps> = ({
 
           {formType === "signUp" && (
             <FormField
-              control={form.control}
+              control={formMethods.control}
               name="confirmPassword"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Confirm Password</FormLabel>
                   <FormControl>
-                    <Input
-                      type="password"
-                      placeholder="Confirm your password"
-                      className="py-2 px-4 w-full rounded-md border border-neutral-300 dark:border-neutral-600 bg-neutral-50 dark:bg-neutral-800 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                      {...field}
-                    />
+                    <Input type="password" placeholder="Confirm your password" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -119,19 +115,16 @@ const AuthForm: React.FC<AuthFormProps> = ({
             />
           )}
 
-          <Button
-            type="submit"
-            className="w-full py-3 text-base font-semibold text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-colors"
-            disabled={isSubmitting}
-          >
+          <Button type="submit" className="w-full" disabled={isSubmitting}>
             {isSubmitting
               ? formType === "signUp" ? "Signing up..." : "Signing in..."
-              : formType === "signUp" ? "Sign up" : "Sign in"
-            }
+              : formType === "signUp" ? "Sign up" : "Sign in"}
           </Button>
-        </form>
-      </Form>
-    </div>
+        </motion.form>
+      </FormProvider>
+
+      <Toaster richColors position="bottom-right" />
+    </motion.div>
   );
 };
 

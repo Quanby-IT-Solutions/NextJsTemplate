@@ -29,7 +29,7 @@ const faqData: FAQItem[] = [
 
 const FAQSection: React.FC = () => {
     return (
-        <section className="py-16">
+        <section className="p-24 lg:p-28">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col justify-center items-center gap-10 lg:flex-row lg:justify-between">
                     {/* Image Section */}
