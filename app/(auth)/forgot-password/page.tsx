@@ -1,4 +1,4 @@
-import { ForgotPassword } from "@/src/components/ForgotPassword";
+import { ForgotPassword } from "@/src/components/forgot-password/ForgotPassword";
 import { Message } from "@/src/components/form-message/FormMessage";
 
 export default function ForgotPasswordPage({

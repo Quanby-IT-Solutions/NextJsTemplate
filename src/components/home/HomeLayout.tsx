@@ -16,9 +16,9 @@ const headerLinks = [
     { label: "FAQs", href: "/faqs", enabled: true },
     {
         label: "Services", enabled: true, subLinks: [
-            { label: "Web Development", href: "/services/web-development", enabled: true },
-            { label: "SEO Optimization", href: "/services/seo", enabled: true },
-            { label: "Digital Marketing", href: "/services/digital-marketing", enabled: true }
+            { label: "Web Development", href: "/#", enabled: true },
+            { label: "SEO Optimization", href: "/#", enabled: true },
+            { label: "Digital Marketing", href: "/#", enabled: true }
         ]
     }
 ];
@@ -64,9 +64,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
 
             <HomeTransition>
                 <div className="w-full">
-                    <div className="pt-16 lg:pt-20">
-                        {children}
-                    </div>
+                    {children}
                 </div>
             </HomeTransition>
 

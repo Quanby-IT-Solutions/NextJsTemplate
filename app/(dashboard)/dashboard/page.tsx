@@ -1,5 +1,5 @@
-import { AuthLayout } from "@/src/full-page/auth/auth-layout";
-import { DashboardContent } from "@/src/full-page/auth/dashboard";
+import { AuthLayout } from "@/src/components/auth-layout/AuthLayout";
+import { DashboardContent } from "@/src/full-page/auth/home/DashboardContent";
 
 export default function DashboardPage() {
   return (

@@ -1,7 +1,7 @@
 import { cn } from "@/src/utils/cn";
 import { Button } from "../button/Button";
 import { signOutAction } from "@/src/utils/actions";
-import { ThemeChangerButton } from "../theme-switcher/ThemeChange";
+import { ModeToggle } from "../theme-switcher/ThemeChange";
 
 export interface AuthHeaderLink {
   label: string;
@@ -54,7 +54,7 @@ export const AuthHeader: React.FC<AuthHeaderProps> = ({
         </nav>
       )}
       <div className="flex items-center space-x-4">
-        <ThemeChangerButton />
+        <ModeToggle />
         <form action={signOutAction}>
           <Button type="submit" variant="outline">
             Sign out

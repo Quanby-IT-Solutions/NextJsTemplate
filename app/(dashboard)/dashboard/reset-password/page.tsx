@@ -1,6 +1,6 @@
 import { Message } from "@/src/components/form-message/FormMessage";
-import { ResetPassword } from "@/src/components/ResetPassword";
-import { AuthLayout } from "@/src/full-page/auth/auth-layout";
+import { ResetPassword } from "@/src/components/reset-password/ResetPassword";
+import { AuthLayout } from "@/src/components/auth-layout/AuthLayout";
 
 export default function ResetPasswordPage({
   searchParams,
