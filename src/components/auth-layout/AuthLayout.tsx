@@ -7,8 +7,7 @@ import {
   LayoutDashboard,
   User,
   Settings,
-  ListOrdered,
-  Book,
+  ShoppingBag,
   ShieldCheck,
 } from "lucide-react";
 import { DashboardLayout } from "../dashboard/DashboardLayout";
@@ -54,16 +53,10 @@ const AuthLayoutContent: React.FC<AuthLayoutProps> = ({ children }) => {
           icon: <User size={20} />,
         },
         {
-          label: "Books",
-          href: "/books",
+          label: "Payment",
+          href: "/payment",
           enabled: true,
-          icon: <Book size={20} />,
-        },
-        {
-          label: "Sample",
-          href: "/sample",
-          enabled: true,
-          icon: <ListOrdered size={20} />,
+          icon: <ShoppingBag size={20} />,
         },
         {
           label: "Settings",
