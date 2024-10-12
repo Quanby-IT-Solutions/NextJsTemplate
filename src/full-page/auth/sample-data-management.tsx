@@ -2,9 +2,9 @@
 
 import React, { useState, useMemo, useCallback, useEffect } from "react";
 import { ColumnDefinition, Table, Filter } from "@/src/components/table/Table";
-import { StatusBadge } from "@/src/components/StatusBadge";
 import { CheckCircle, Hourglass, XCircle } from "lucide-react";
 import { ButtonConfig } from "@/src/components/button/Button";
+import { Badge } from "@/src/components/badge/Badge";
 
 interface Order {
   id: string;
@@ -14,6 +14,7 @@ interface Order {
   type: string;
   status: "Completed" | "Processing" | "Rejected";
 }
+
 const orders: Order[] = [
   {
     id: "00001",
@@ -136,6 +137,7 @@ const orders: Order[] = [
     status: "Processing",
   },
 ];
+
 const SampleDataManagement: React.FC = () => {
   const [filterType, setFilterType] = useState<string | null>(null);
   const [selectedRows, setSelectedRows] = useState<Set<number>>(new Set());
@@ -251,11 +253,10 @@ const SampleDataManagement: React.FC = () => {
             status as Order["status"]
           );
           return (
-            <StatusBadge
-              status={status as Order["status"]}
-              className={className}
-              icon={icon}
-            />
+            <Badge className={className}>
+              {icon}
+              <span className="ml-2">{status}</span>
+            </Badge>
           );
         },
       },
