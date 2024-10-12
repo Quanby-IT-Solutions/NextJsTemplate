@@ -1,6 +1,3 @@
-/**
- * This is the dummy data book interface.
- */
 interface Book {
     id: number;
     title: string;

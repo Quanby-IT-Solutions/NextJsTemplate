@@ -1,11 +1,11 @@
 import { ColumnDef } from "@tanstack/react-table"
 import { Checkbox } from "@/src/components/checkbox/Checkbox"
 import { DataTableColumnHeader } from "@/src/components/data-table/data-table-header"
-import { Payment } from "../../../utils/interfaces/dummy_payments"
-import { renderActionDropdown } from "./PaymentActions"
-import { getStatusColor } from "./PaymentHelpers"
+import { User } from "@/src/utils/interfaces/user_management"
+import { renderActionDropdown } from "./UserActions"
+import { getStatusColor } from "./UserHelpers"
 
-export const columns: ColumnDef<Payment>[] = [
+export const columns: ColumnDef<User>[] = [
     {
         id: "select",
         header: ({ table }) => (
@@ -33,6 +33,24 @@ export const columns: ColumnDef<Payment>[] = [
         enableHiding: false,
     },
     {
+        accessorKey: "firstName",
+        header: ({ column }) => (
+            <DataTableColumnHeader column={column} title="First Name" />
+        ),
+    },
+    {
+        accessorKey: "lastName",
+        header: ({ column }) => (
+            <DataTableColumnHeader column={column} title="Last Name" />
+        ),
+    },
+    {
+        accessorKey: "email",
+        header: ({ column }) => (
+            <DataTableColumnHeader column={column} title="Email" />
+        ),
+    },
+    {
         accessorKey: "status",
         header: ({ column }) => (
             <DataTableColumnHeader column={column} title="Status" />
@@ -46,26 +64,6 @@ export const columns: ColumnDef<Payment>[] = [
             )
         },
         filterFn: (row, id, value) => value.includes(row.getValue(id)),
-    },
-    {
-        accessorKey: "email",
-        header: ({ column }) => (
-            <DataTableColumnHeader column={column} title="Email" />
-        ),
-    },
-    {
-        accessorKey: "amount",
-        header: ({ column }) => (
-            <DataTableColumnHeader column={column} title="Amount" />
-        ),
-        cell: ({ row }) => {
-            const amount = parseFloat(row.getValue("amount"))
-            const formatted = new Intl.NumberFormat("en-US", {
-                style: "currency",
-                currency: "USD",
-            }).format(amount)
-            return <div className="text-left font-medium">{formatted}</div>
-        },
     },
     {
         id: "actions",

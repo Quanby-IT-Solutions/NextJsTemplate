@@ -1,5 +1,5 @@
 import { toast } from "sonner"
-import { Payment } from "./types"
+import { Payment } from "../../../utils/interfaces/dummy_payments"
 import { MoreHorizontal, Eye, Edit, Trash, Clipboard } from "lucide-react"
 import { Button } from "@/src/components/button/Button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/src/components/ui/dropdown-menu"

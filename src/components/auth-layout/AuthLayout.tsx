@@ -9,6 +9,9 @@ import {
   Settings,
   ShoppingBag,
   ShieldCheck,
+  SchoolIcon,
+  Users,
+  Code
 } from "lucide-react";
 import { DashboardLayout } from "../dashboard/DashboardLayout";
 import { UserProvider, useUser } from "@/src/utils/user/user-context";
@@ -47,16 +50,35 @@ const AuthLayoutContent: React.FC<AuthLayoutProps> = ({ children }) => {
           icon: <LayoutDashboard size={20} />,
         },
         {
-          label: "Profile",
-          href: "/profile",
+          label: "Users",
+          href: "/users",
           enabled: true,
-          icon: <User size={20} />,
+          icon: <Users size={20} />,
         },
         {
-          label: "Payment",
-          href: "/payment",
+          label: "Dummy",
           enabled: true,
-          icon: <ShoppingBag size={20} />,
+          icon: <Code size={20} />,
+          subLinks: [
+            {
+              label: "Users",
+              href: "/dummy/users",
+              enabled: true,
+              icon: <Users size={20} />,
+            },
+            {
+              label: "Course",
+              href: "/dummy/courses",
+              enabled: true,
+              icon: <SchoolIcon size={20} />,
+            },
+            {
+              label: "Payment",
+              href: "/payment",
+              enabled: true,
+              icon: <ShoppingBag size={20} />,
+            },
+          ],
         },
         {
           label: "Settings",

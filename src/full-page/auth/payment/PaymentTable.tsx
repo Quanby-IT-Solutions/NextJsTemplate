@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useEffect, useState } from "react"
-import { Payment } from "./types"
+import { Payment } from "../../../utils/interfaces/dummy_payments"
 import { DataTable, FilterableColumn } from "@/src/components/data-table/data-table"
 import { Toaster } from "@/src/components/ui/sonner"
 import { columns } from "./PaymentColumns"
@@ -50,17 +50,17 @@ function generatePaymentData(count: number): Payment[] {
 
 export default function PaymentTable() {
     const [data, setData] = useState<Payment[]>([])
-    const [loading, setLoading] = useState(true) // Loading state
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         // Simulate fetching data with a delay
         const fetchData = async () => {
-            setLoading(true) // Set loading to true while fetching data
+            setLoading(true)
             const paymentData = generatePaymentData(20)
             setTimeout(() => {
                 setData(paymentData)
-                setLoading(false) // Data is ready, so set loading to false
-            }, 1500) // Simulated delay for data fetching
+                setLoading(false)
+            }, 1500)
         }
         fetchData()
     }, [])
