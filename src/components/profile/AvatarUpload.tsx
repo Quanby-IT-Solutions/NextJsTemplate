@@ -12,7 +12,7 @@ export const AvatarUpload: React.FC = () => {
                 width={150}
                 height={150}
             />
-            <Button className="mt-2 px-3 py-1 bg-blue-600 text-white">
+            <Button className="mt-2 px-3 py-1">
                 Edit Avatar
             </Button>
         </div>

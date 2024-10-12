@@ -1,11 +1,15 @@
 import { Message } from "@/src/components/form-message/FormMessage";
 import { AuthLayout } from "@/src/components/auth-layout/AuthLayout";
-import BooksManagements from "@/src/full-page/auth/books-management";
+import { DummyUsers } from "@/src/full-page/auth/dummy/users/DummyUsers";
 
-export default function BooksPage({ searchParams }: { searchParams: Message }) {
+export default function DummyUsersPage({
+  searchParams,
+}: {
+  searchParams: Message;
+}) {
   return (
     <AuthLayout>
-      <BooksManagements />
+      <DummyUsers />
     </AuthLayout>
   );
 }

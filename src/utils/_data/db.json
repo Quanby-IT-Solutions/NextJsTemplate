@@ -203,28 +203,418 @@
   ],
   "users": [
     {
+      "id": "550e8400-e29b-41d4-a716-446655440000",
+      "email": "john.doe@example.com",
+      "firstName": "John",
+      "lastName": "Doe",
+      "organizationId": "550e8400-e29b-41d4-a716-446655440001",
+      "bio": "Software developer with 10 years of experience.",
+      "avatarUrl": "https://api.dicebear.com/9.x/adventurer/svg?seed=john",
+      "dateOfBirth": "1985-05-15",
+      "phoneNumber": "+1234567890",
+      "createdAt": "2023-01-01T12:00:00Z",
+      "updatedAt": "2023-01-01T12:00:00Z",
+      "status": "online"
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440001",
+      "email": "jane.smith@example.com",
+      "firstName": "Jane",
+      "lastName": "Smith",
+      "organizationId": "550e8400-e29b-41d4-a716-446655440001",
+      "bio": "Project manager with 5 years of experience.",
+      "avatarUrl": "https://api.dicebear.com/9.x/adventurer/svg?seed=jane",
+      "dateOfBirth": "1990-07-20",
+      "phoneNumber": "+0987654321",
+      "createdAt": "2023-01-02T12:00:00Z",
+      "updatedAt": "2023-01-02T12:00:00Z",
+      "status": "offline"
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440002",
+      "email": "alice.jones@example.com",
+      "firstName": "Alice",
+      "lastName": "Jones",
+      "organizationId": "550e8400-e29b-41d4-a716-446655440001",
+      "bio": "UX designer with a passion for creating intuitive user experiences.",
+      "avatarUrl": "https://api.dicebear.com/9.x/adventurer/svg?seed=alice",
+      "dateOfBirth": "1988-03-22",
+      "phoneNumber": "+1122334455",
+      "createdAt": "2023-01-03T12:00:00Z",
+      "updatedAt": "2023-01-03T12:00:00Z",
+      "status": "online"
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440003",
+      "email": "bob.brown@example.com",
+      "firstName": "Bob",
+      "lastName": "Brown",
+      "organizationId": "550e8400-e29b-41d4-a716-446655440001",
+      "bio": "Data scientist with expertise in machine learning and AI.",
+      "avatarUrl": "https://api.dicebear.com/9.x/adventurer/svg?seed=bob",
+      "dateOfBirth": "1982-11-11",
+      "phoneNumber": "+2233445566",
+      "createdAt": "2023-01-04T12:00:00Z",
+      "updatedAt": "2023-01-04T12:00:00Z",
+      "status": "offline"
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440004",
+      "email": "carol.white@example.com",
+      "firstName": "Carol",
+      "lastName": "White",
+      "organizationId": "550e8400-e29b-41d4-a716-446655440001",
+      "bio": "Marketing specialist with a focus on digital marketing strategies.",
+      "avatarUrl": "https://api.dicebear.com/9.x/adventurer/svg?seed=carol",
+      "dateOfBirth": "1992-06-30",
+      "phoneNumber": "+3344556677",
+      "createdAt": "2023-01-05T12:00:00Z",
+      "updatedAt": "2023-01-05T12:00:00Z",
+      "status": "online"
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440005",
+      "email": "dave.green@example.com",
+      "firstName": "Dave",
+      "lastName": "Green",
+      "organizationId": "550e8400-e29b-41d4-a716-446655440001",
+      "bio": "Network engineer with experience in large-scale network infrastructure.",
+      "avatarUrl": "https://api.dicebear.com/9.x/adventurer/svg?seed=dave",
+      "dateOfBirth": "1987-02-14",
+      "phoneNumber": "+4455667788",
+      "createdAt": "2023-01-06T12:00:00Z",
+      "updatedAt": "2023-01-06T12:00:00Z",
+      "status": "offline"
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440006",
+      "email": "eve.black@example.com",
+      "firstName": "Eve",
+      "lastName": "Black",
+      "organizationId": "550e8400-e29b-41d4-a716-446655440001",
+      "bio": "HR manager with a focus on employee engagement and development.",
+      "avatarUrl": "https://api.dicebear.com/9.x/adventurer/svg?seed=eve",
+      "dateOfBirth": "1995-09-09",
+      "phoneNumber": "+5566778899",
+      "createdAt": "2023-01-07T12:00:00Z",
+      "updatedAt": "2023-01-07T12:00:00Z",
+      "status": "online"
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440007",
+      "email": "frank.gray@example.com",
+      "firstName": "Frank",
+      "lastName": "Gray",
+      "organizationId": "550e8400-e29b-41d4-a716-446655440001",
+      "bio": "DevOps engineer with a background in cloud infrastructure.",
+      "avatarUrl": "https://api.dicebear.com/9.x/adventurer/svg?seed=frank",
+      "dateOfBirth": "1983-12-25",
+      "phoneNumber": "+6677889900",
+      "createdAt": "2023-01-08T12:00:00Z",
+      "updatedAt": "2023-01-08T12:00:00Z",
+      "status": "offline"
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440008",
+      "email": "grace.blue@example.com",
+      "firstName": "Grace",
+      "lastName": "Blue",
+      "organizationId": "550e8400-e29b-41d4-a716-446655440001",
+      "bio": "Content writer with a knack for creating engaging content.",
+      "avatarUrl": "https://api.dicebear.com/9.x/adventurer/svg?seed=grace",
+      "dateOfBirth": "1991-04-18",
+      "phoneNumber": "+7788990011",
+      "createdAt": "2023-01-09T12:00:00Z",
+      "updatedAt": "2023-01-09T12:00:00Z",
+      "status": "online"
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440009",
+      "email": "henry.red@example.com",
+      "firstName": "Henry",
+      "lastName": "Red",
+      "organizationId": "550e8400-e29b-41d4-a716-446655440001",
+      "bio": "Sales manager with a proven track record in B2B sales.",
+      "avatarUrl": "https://api.dicebear.com/9.x/adventurer/svg?seed=henry",
+      "dateOfBirth": "1989-08-08",
+      "phoneNumber": "+8899001122",
+      "createdAt": "2023-01-10T12:00:00Z",
+      "updatedAt": "2023-01-10T12:00:00Z",
+      "status": "offline"
+    }
+  ],
+  "userRoles": [
+    {
       "id": 1,
-      "username": "admin",
-      "password": "admin",
-      "firstName": "Admin",
-      "lastName": "User",
+      "userId": "550e8400-e29b-41d4-a716-446655440000",
       "role": "admin"
     },
     {
       "id": 2,
-      "username": "instructor",
-      "password": "instructor",
-      "firstName": "John",
-      "lastName": "Doe",
-      "role": "instructor"
+      "userId": "550e8400-e29b-41d4-a716-446655440001",
+      "role": "user"
     },
     {
       "id": 3,
-      "username": "student",
-      "password": "student",
-      "firstName": "Jane",
-      "lastName": "Smith",
-      "role": "student"
+      "userId": "550e8400-e29b-41d4-a716-446655440002",
+      "role": "user"
+    },
+    {
+      "id": 4,
+      "userId": "550e8400-e29b-41d4-a716-446655440003",
+      "role": "user"
+    },
+    {
+      "id": 5,
+      "userId": "550e8400-e29b-41d4-a716-446655440004",
+      "role": "user"
+    },
+    {
+      "id": 6,
+      "userId": "550e8400-e29b-41d4-a716-446655440005",
+      "role": "user"
+    },
+    {
+      "id": 7,
+      "userId": "550e8400-e29b-41d4-a716-446655440006",
+      "role": "user"
+    },
+    {
+      "id": 8,
+      "userId": "550e8400-e29b-41d4-a716-446655440007",
+      "role": "user"
+    },
+    {
+      "id": 9,
+      "userId": "550e8400-e29b-41d4-a716-446655440008",
+      "role": "user"
+    },
+    {
+      "id": 10,
+      "userId": "550e8400-e29b-41d4-a716-446655440009",
+      "role": "user"
+    }
+  ],
+  "roles": [
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440002",
+      "name": "Admin",
+      "organizationId": "550e8400-e29b-41d4-a716-446655440001",
+      "description": "Administrator role with full permissions.",
+      "createdAt": "2023-01-01T12:00:00Z",
+      "updatedAt": "2023-01-01T12:00:00Z"
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440003",
+      "name": "User",
+      "organizationId": "550e8400-e29b-41d4-a716-446655440001",
+      "description": "Standard user role with limited permissions.",
+      "createdAt": "2023-01-01T12:00:00Z",
+      "updatedAt": "2023-01-01T12:00:00Z"
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440004",
+      "name": "Manager",
+      "organizationId": "550e8400-e29b-41d4-a716-446655440001",
+      "description": "Manager role with permissions to oversee projects and teams.",
+      "createdAt": "2023-01-01T12:00:00Z",
+      "updatedAt": "2023-01-01T12:00:00Z"
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440005",
+      "name": "Guest",
+      "organizationId": "550e8400-e29b-41d4-a716-446655440001",
+      "description": "Guest role with read-only permissions.",
+      "createdAt": "2023-01-01T12:00:00Z",
+      "updatedAt": "2023-01-01T12:00:00Z"
+    }
+  ],
+  "rolePermissions": [
+    {
+      "id": 1,
+      "role": "admin",
+      "permission": "read"
+    },
+    {
+      "id": 2,
+      "role": "admin",
+      "permission": "write"
+    },
+    {
+      "id": 3,
+      "role": "user",
+      "permission": "read"
+    },
+    {
+      "id": 4,
+      "role": "manager",
+      "permission": "read"
+    },
+    {
+      "id": 5,
+      "role": "manager",
+      "permission": "write"
+    },
+    {
+      "id": 6,
+      "role": "guest",
+      "permission": "read"
+    }
+  ],
+  "permissions": [
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440003",
+      "roleId": "550e8400-e29b-41d4-a716-446655440002",
+      "name": "Read",
+      "description": "Permission to read data.",
+      "createdAt": "2023-01-01T12:00:00Z",
+      "updatedAt": "2023-01-01T12:00:00Z"
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440004",
+      "roleId": "550e8400-e29b-41d4-a716-446655440002",
+      "name": "Write",
+      "description": "Permission to write data.",
+      "createdAt": "2023-01-01T12:00:00Z",
+      "updatedAt": "2023-01-01T12:00:00Z"
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440005",
+      "roleId": "550e8400-e29b-41d4-a716-446655440003",
+      "name": "Read",
+      "description": "Permission to read data.",
+      "createdAt": "2023-01-01T12:00:00Z",
+      "updatedAt": "2023-01-01T12:00:00Z"
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440006",
+      "roleId": "550e8400-e29b-41d4-a716-446655440004",
+      "name": "Read",
+      "description": "Permission to read data.",
+      "createdAt": "2023-01-01T12:00:00Z",
+      "updatedAt": "2023-01-01T12:00:00Z"
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440007",
+      "roleId": "550e8400-e29b-41d4-a716-446655440004",
+      "name": "Write",
+      "description": "Permission to write data.",
+      "createdAt": "2023-01-01T12:00:00Z",
+      "updatedAt": "2023-01-01T12:00:00Z"
+    }
+  ],
+  "organizations": [
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440001",
+      "name": "Quanby IT Solutions",
+      "domain": "quanby.com",
+      "website": "https://quanby.com",
+      "createdAt": "2023-01-01T12:00:00Z",
+      "updatedAt": "2023-01-01T12:00:00Z"
+    }
+  ],
+  "messages": [
+    {
+      "id": 1,
+      "insertedAt": "2023-01-01T12:00:00Z",
+      "message": "Hello, world!",
+      "userId": "550e8400-e29b-41d4-a716-446655440000",
+      "channelId": 1
+    },
+    {
+      "id": 2,
+      "insertedAt": "2023-01-02T12:00:00Z",
+      "message": "Good morning, team!",
+      "userId": "550e8400-e29b-41d4-a716-446655440001",
+      "channelId": 1
+    },
+    {
+      "id": 3,
+      "insertedAt": "2023-01-03T12:00:00Z",
+      "message": "Let's discuss the new project.",
+      "userId": "550e8400-e29b-41d4-a716-446655440002",
+      "channelId": 1
+    },
+    {
+      "id": 4,
+      "insertedAt": "2023-01-04T12:00:00Z",
+      "message": "I have updated the documentation.",
+      "userId": "550e8400-e29b-41d4-a716-446655440003",
+      "channelId": 1
+    },
+    {
+      "id": 5,
+      "insertedAt": "2023-01-05T12:00:00Z",
+      "message": "Please review the latest changes.",
+      "userId": "550e8400-e29b-41d4-a716-446655440004",
+      "channelId": 1
+    },
+    {
+      "id": 6,
+      "insertedAt": "2023-01-06T12:00:00Z",
+      "message": "The server maintenance is scheduled for tonight.",
+      "userId": "550e8400-e29b-41d4-a716-446655440005",
+      "channelId": 1
+    },
+    {
+      "id": 7,
+      "insertedAt": "2023-01-07T12:00:00Z",
+      "message": "HR meeting at 3 PM.",
+      "userId": "550e8400-e29b-41d4-a716-446655440006",
+      "channelId": 1
+    },
+    {
+      "id": 8,
+      "insertedAt": "2023-01-08T12:00:00Z",
+      "message": "Deployment completed successfully.",
+      "userId": "550e8400-e29b-41d4-a716-446655440007",
+      "channelId": 1
+    },
+    {
+      "id": 9,
+      "insertedAt": "2023-01-09T12:00:00Z",
+      "message": "New blog post is live.",
+      "userId": "550e8400-e29b-41d4-a716-446655440008",
+      "channelId": 1
+    },
+    {
+      "id": 10,
+      "insertedAt": "2023-01-10T12:00:00Z",
+      "message": "Sales report for Q1 is ready.",
+      "userId": "550e8400-e29b-41d4-a716-446655440009",
+      "channelId": 1
+    }
+  ],
+  "channels": [
+    {
+      "id": 1,
+      "insertedAt": "2023-01-01T12:00:00Z",
+      "slug": "general",
+      "createdBy": "550e8400-e29b-41d4-a716-446655440000"
+    },
+    {
+      "id": 2,
+      "insertedAt": "2023-01-02T12:00:00Z",
+      "slug": "development",
+      "createdBy": "550e8400-e29b-41d4-a716-446655440001"
+    },
+    {
+      "id": 3,
+      "insertedAt": "2023-01-03T12:00:00Z",
+      "slug": "marketing",
+      "createdBy": "550e8400-e29b-41d4-a716-446655440002"
+    },
+    {
+      "id": 4,
+      "insertedAt": "2023-01-04T12:00:00Z",
+      "slug": "design",
+      "createdBy": "550e8400-e29b-41d4-a716-446655440003"
+    },
+    {
+      "id": 5,
+      "insertedAt": "2023-01-05T12:00:00Z",
+      "slug": "sales",
+      "createdBy": "550e8400-e29b-41d4-a716-446655440004"
     }
   ]
 }

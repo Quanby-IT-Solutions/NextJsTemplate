@@ -1,15 +1,15 @@
 import { Message } from "@/src/components/form-message/FormMessage";
 import { AuthLayout } from "@/src/components/auth-layout/AuthLayout";
-import SampleDataManagement from "@/src/full-page/auth/sample-data-management";
+import { DummyUsers } from "@/src/full-page/auth/dummy/users/DummyUsers";
 
-export default function SamplePage({
+export default function DummyCoursePage({
   searchParams,
 }: {
   searchParams: Message;
 }) {
   return (
     <AuthLayout>
-      <SampleDataManagement />
+      <DummyUsers />
     </AuthLayout>
   );
 }
