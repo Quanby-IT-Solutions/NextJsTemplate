@@ -33,13 +33,13 @@ export const columns: ColumnDef<User>[] = [
         enableHiding: false,
     },
     {
-        accessorKey: "firstName",
+        accessorKey: "first_name",
         header: ({ column }) => (
             <DataTableColumnHeader column={column} title="First Name" />
         ),
     },
     {
-        accessorKey: "lastName",
+        accessorKey: "last_name",
         header: ({ column }) => (
             <DataTableColumnHeader column={column} title="Last Name" />
         ),
