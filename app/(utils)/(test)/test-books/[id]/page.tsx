@@ -1,5 +1,5 @@
 // app/(test)/books/[id]/page.tsx
-import { fetchBookById } from "@/app/api/(dummy)/books/utils";
+import { fetchBookById } from "@/app/api/dummy/books/utils";
 
 interface BookDetailsPageProps {
   params: {
