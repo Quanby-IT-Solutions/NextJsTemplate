@@ -3,21 +3,8 @@
 import { createContext, useContext, ReactNode, useState, useEffect, useCallback } from "react";
 import { User } from '@supabase/supabase-js';
 import { createClient } from "../supabase/client";
+import { User as UserProfile } from "../interfaces/user_management";
 
-interface UserProfile {
-  id: string;
-  email: string;
-  first_name: string | null;
-  last_name: string | null;
-  organization_id: string | null;
-  bio: string | null;
-  avatar_url: string | null;
-  date_of_birth: string | null;
-  phone_number: string | null;
-  created_at: string | null;
-  updated_at: string | null;
-  status: 'online' | 'offline' | 'away';
-}
 
 interface UserContextProps {
   user: User | null;
