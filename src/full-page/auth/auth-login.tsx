@@ -1,11 +1,14 @@
+// src\full-page\auth\auth-login.tsx
+
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import Header from "../../components/auth-login-registration/Header";
 import GuestSignIn from "../../components/auth-login-registration/GuestSignIn";
 import { Message } from "../../components/form-message/FormMessage";
 import { StaticImageData } from "next/image";
 import AuthForm from "@/src/components/auth-login-registration/AuthForm";
+import { Toaster } from "@/src/components/ui/sonner";
 
 interface AuthLoginProps {
   searchParams: Message;
@@ -76,6 +79,7 @@ const AuthLogin: React.FC<AuthLoginProps> = ({
           </div>
         </div>
       </section>
+      <Toaster richColors position="bottom-right" />
     </div>
   );
 };

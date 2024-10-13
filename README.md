@@ -56,3 +56,11 @@ This template is designed to be the foundation for all future company web projec
 ## Feedback and issues
 
 For any feedback, suggestions, or issues, please reach out to the development team or submit a request through the internal company tracking system.
+
+## Build For Production
+
+```bash
+pnpm clean
+pnpm build
+pnpm start
+```
