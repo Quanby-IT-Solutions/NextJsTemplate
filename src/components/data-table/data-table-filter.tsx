@@ -4,13 +4,13 @@ import { Table } from '@tanstack/react-table'
 import { FilterableColumn } from './data-table'
 import { CalendarIcon, SortAsc, CheckIcon } from 'lucide-react'
 import { format } from 'date-fns'
-import { Button } from '../button/Button'
+import { Button } from "../ui/button";
 import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover'
-import { Calendar } from '../calendar/Calendar'
+import { Calendar } from '../ui/calendar'
 import { Slider } from '../ui/slider'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../select/Select'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select'
 import { Checkbox } from '@radix-ui/react-checkbox'
-import { Input } from '../input/Input'
+import { Input } from '../ui/input'
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '../ui/command'
 
 interface DataTableFilterProps<TData, TValue> {

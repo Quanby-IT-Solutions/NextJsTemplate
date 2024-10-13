@@ -1,10 +1,10 @@
 import {
   Message,
   FormMessage,
-} from "@/src/components/form-message/FormMessage";
-import { Input } from "@/src/components/input/Input";
+} from "@/src/components/form-message/form-message";
 import { SubmitButton } from "@/src/components/submit-button/SubmitButton";
 import { resetPasswordAction } from "@/src/utils/actions";
+import { Input } from "../ui/input";
 
 export interface ResetPasswordProps {
   className?: string;

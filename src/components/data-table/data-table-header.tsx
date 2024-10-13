@@ -1,5 +1,5 @@
 // app/components/data-table/header.tsx
-import { Button } from "@/src/components/button/Button"
+import { Button } from "../ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from "@/src/components/ui/dropdown-menu"
 import { cn } from "@/src/utils/cn"
 import { Column } from "@tanstack/react-table"

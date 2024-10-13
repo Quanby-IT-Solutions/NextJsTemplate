@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Button } from "../button/Button";
-import { ModeToggle } from "../theme-switcher/ThemeChange";
+import { Button } from "../ui/button";
+import { ModeToggle } from "../theme-variety-switcher/ThemeChange";
 
 interface HeaderProps {
   logoSrc: string;

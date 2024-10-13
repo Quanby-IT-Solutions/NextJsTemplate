@@ -1,9 +1,9 @@
 import { ColumnDef } from "@tanstack/react-table"
-import { Checkbox } from "@/src/components/checkbox/Checkbox"
+import { Checkbox } from "@/src/components/ui/checkbox"
 import { DataTableColumnHeader } from "@/src/components/data-table/data-table-header"
-import { Payment } from "../../../utils/interfaces/dummy_payments"
 import { renderActionDropdown } from "./PaymentActions"
 import { getStatusColor } from "./PaymentHelpers"
+import { Payment } from "@/src/utils/interfaces/dummy_payments"
 
 export const columns: ColumnDef<Payment>[] = [
     {

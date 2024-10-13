@@ -1,7 +1,7 @@
 // app/components/data-table/data-table-toolbar.tsx
 import React from 'react'
 import { Table } from "@tanstack/react-table"
-import { Button } from "@/src/components/button/Button"
+import { Button } from "../ui/button";
 import { DataTableViewOptions } from "@/src/components/data-table/data-table-view-options"
 import { X } from "lucide-react"
 import { DataTableFilter } from "./data-table-filter"

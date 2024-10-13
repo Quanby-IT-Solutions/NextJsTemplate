@@ -1,8 +1,8 @@
 import { toast } from "sonner"
-import { Payment } from "../../../utils/interfaces/dummy_payments"
 import { MoreHorizontal, Eye, Edit, Trash, Clipboard } from "lucide-react"
-import { Button } from "@/src/components/button/Button"
+import { Button } from "@/src/components/ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/src/components/ui/dropdown-menu"
+import { Payment } from "@/src/utils/interfaces/dummy_payments"
 
 export function handleViewCustomer(payment: Payment) {
     console.log("View customer:", payment)

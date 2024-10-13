@@ -1,5 +1,5 @@
-import Hero from "@/src/components/hero/Hero";
-import Features from "@/src/components/features/Features";
+import Features from "@/src/components/features/features";
+import Hero from "@/src/components/hero/hero";
 
 const Home: React.FC = () => {
     return (

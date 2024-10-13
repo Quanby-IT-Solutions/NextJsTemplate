@@ -1,5 +1,5 @@
-import { Card, CardHeader, CardTitle, CardContent, CardDescription } from "@/src/components/card/Card";
-import { TabsContent } from "@/src/components/tabs/Tabs";
+import { Card, CardHeader, CardTitle, CardContent, CardDescription } from "@/src/components/ui/card";
+import { TabsContent } from "@/src/components/ui/tabs";
 import { Overview } from "../overview";
 import { RecentSales } from "../recent-sales";
 

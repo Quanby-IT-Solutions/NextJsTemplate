@@ -1,6 +1,6 @@
 "use client";
 
-import FeaturesSectionDemo from "./FeaturesSection";
+import FeaturesSectionDemo from "./features-section";
 
 const Features: React.FC = () => {
     return (

@@ -1,6 +1,6 @@
-import { Card, CardContent } from "../card/Card";
-import { FormField, FormItem, FormLabel, FormControl } from "../form/Form";
-import { Input } from "../input/Input";
+import { Card, CardContent } from "../ui/card";
+import { FormField, FormItem, FormLabel, FormControl } from "../ui/form";
+import { Input } from "../ui/input";
 import { AvatarUpload } from "./AvatarUpload";
 
 export const PersonalInfoForm: React.FC<{ form: any }> = ({ form }) => {
