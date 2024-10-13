@@ -5,7 +5,7 @@ import { DataTable, FilterableColumn } from "@/src/components/data-table/data-ta
 import { Toaster } from "@/src/components/ui/sonner"
 import { Spinner } from "@/src/components/spinner/Spinner"
 import { User } from "@/src/utils/interfaces/user_management"
-import { columns } from "./UserColumns"
+import { columns } from "../UserColumns"
 
 export default function DummyUserTable() {
     const [data, setData] = useState<User[]>([])

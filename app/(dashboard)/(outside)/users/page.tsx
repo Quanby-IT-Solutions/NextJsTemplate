@@ -1,6 +1,6 @@
 import { Message } from "@/src/components/form-message/FormMessage";
 import { AuthLayout } from "@/src/components/auth-layout/AuthLayout";
-import { Users } from "@/src/full-page/auth/dummy/users/Users";
+import { Users } from "@/src/full-page/auth/users/Users";
 
 export default function UsersPage({
   searchParams,

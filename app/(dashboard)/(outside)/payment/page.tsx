@@ -1,11 +1,13 @@
-import { AuthLayout } from "@/src/components/auth-layout/AuthLayout";
-import PaymentTable from "@/src/full-page/auth/payment/PaymentTable";
+"use client"
 
-export default async function SamplePage() {
+import { AuthLayout } from "@/src/components/auth-layout/AuthLayout";
+import { Payment } from "@/src/full-page/auth/payment/Payment";
+
+export default async function PaymentPage() {
 
   return (
     <AuthLayout>
-      <PaymentTable />
+      <Payment />
     </AuthLayout>
   );
 }

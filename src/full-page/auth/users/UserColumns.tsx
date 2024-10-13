@@ -33,13 +33,13 @@ export const columns: ColumnDef<User>[] = [
         enableHiding: false,
     },
     {
-        accessorKey: "firstName",
+        accessorKey: "first_name",
         header: ({ column }) => (
             <DataTableColumnHeader column={column} title="First Name" />
         ),
     },
     {
-        accessorKey: "lastName",
+        accessorKey: "last_name",
         header: ({ column }) => (
             <DataTableColumnHeader column={column} title="Last Name" />
         ),
@@ -49,21 +49,6 @@ export const columns: ColumnDef<User>[] = [
         header: ({ column }) => (
             <DataTableColumnHeader column={column} title="Email" />
         ),
-    },
-    {
-        accessorKey: "status",
-        header: ({ column }) => (
-            <DataTableColumnHeader column={column} title="Status" />
-        ),
-        cell: ({ row }) => {
-            const status = row.getValue("status") as string
-            return (
-                <div className={`capitalize ${getStatusColor(status)}`}>
-                    {status}
-                </div>
-            )
-        },
-        filterFn: (row, id, value) => value.includes(row.getValue(id)),
     },
     {
         id: "actions",
