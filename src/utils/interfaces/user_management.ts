@@ -32,15 +32,15 @@ export enum AppPermission {
 export interface User {
     id: string;                  // UUID, primary key
     email: string;               // Email address, must be unique
-    firstName?: string;          // First name of the user, optional
-    lastName?: string;           // Last name of the user, optional
-    organizationId?: string;     // Organization the user belongs to, optional
+    first_name?: string;         // First name of the user, optional
+    last_name?: string;          // Last name of the user, optional
+    organization_id?: string;    // Organization the user belongs to, optional
     bio?: string;                // Short bio, optional
-    avatarUrl?: string;          // URL to the user's avatar, optional
-    dateOfBirth?: Date;          // User's date of birth, optional
-    phoneNumber?: string;        // User's phone number, optional
-    createdAt?: string;          // Timestamp when the user was created, optional
-    updatedAt?: string;          // Timestamp when the user was last updated, optional
+    avatar_url?: string;         // URL to the user's avatar, optional
+    date_of_birth?: Date;        // User's date of birth, optional
+    phone_number?: string;       // User's phone number, optional
+    created_at?: string;         // Timestamp when the user was created, optional
+    updated_at?: string;         // Timestamp when the user was last updated, optional
     status: UserStatus;          // User's current status, defaults to 'offline'
 }
 
@@ -50,7 +50,7 @@ export interface User {
  */
 export interface UserRole {
     id: number;                 // Identity column, primary key
-    userId: string;             // UUID, foreign key referencing `users`
+    user_id: string;            // UUID, foreign key referencing `users`
     role: AppRole;              // Role assigned to the user
 }
 
@@ -61,10 +61,10 @@ export interface UserRole {
 export interface Role {
     id: string;                 // UUID, primary key
     name: string;               // Role name, must be unique within the organization
-    organizationId?: string;    // Organization the role belongs to, optional
+    organization_id?: string;   // Organization the role belongs to, optional
     description?: string;       // Description of the role, optional
-    createdAt?: string;         // Timestamp when the role was created, optional
-    updatedAt?: string;         // Timestamp when the role was last updated, optional
+    created_at?: string;        // Timestamp when the role was created, optional
+    updated_at?: string;        // Timestamp when the role was last updated, optional
 }
 
 /**
@@ -83,11 +83,11 @@ export interface RolePermission {
  */
 export interface Permission {
     id: string;                 // UUID, primary key
-    roleId?: string;            // Foreign key referencing the role, optional
+    role_id?: string;           // Foreign key referencing the role, optional
     name: string;               // Permission name
     description?: string;       // Permission description, optional
-    createdAt?: string;         // Timestamp when the permission was created, optional
-    updatedAt?: string;         // Timestamp when the permission was last updated, optional
+    created_at?: string;        // Timestamp when the permission was created, optional
+    updated_at?: string;        // Timestamp when the permission was last updated, optional
 }
 
 /**
@@ -99,8 +99,8 @@ export interface Organization {
     name: string;               // Organization name, must be unique
     domain: string;             // Organization domain, must be unique
     website?: string;           // Website URL, optional
-    createdAt?: string;         // Timestamp when the organization was created, optional
-    updatedAt?: string;         // Timestamp when the organization was last updated, optional
+    created_at?: string;        // Timestamp when the organization was created, optional
+    updated_at?: string;        // Timestamp when the organization was last updated, optional
 }
 
 /**
@@ -109,10 +109,10 @@ export interface Organization {
  */
 export interface Message {
     id: number;                 // Identity column, primary key
-    insertedAt: string;         // Timestamp when the message was inserted
+    inserted_at: string;        // Timestamp when the message was inserted
     message?: string;           // Message content, optional
-    userId: string;             // UUID, foreign key referencing `users`
-    channelId: number;          // Foreign key referencing `channels`
+    user_id: string;            // UUID, foreign key referencing `users`
+    channel_id: number;         // Foreign key referencing `channels`
 }
 
 /**
@@ -121,7 +121,7 @@ export interface Message {
  */
 export interface Channel {
     id: number;                 // Identity column, primary key
-    insertedAt: string;         // Timestamp when the channel was created
+    inserted_at: string;        // Timestamp when the channel was created
     slug: string;               // Unique slug for the channel
-    createdBy: string;          // UUID, foreign key referencing `users`
+    created_by: string;         // UUID, foreign key referencing `users`
 }

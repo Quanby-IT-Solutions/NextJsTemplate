@@ -51,21 +51,6 @@ export const columns: ColumnDef<User>[] = [
         ),
     },
     {
-        accessorKey: "status",
-        header: ({ column }) => (
-            <DataTableColumnHeader column={column} title="Status" />
-        ),
-        cell: ({ row }) => {
-            const status = row.getValue("status") as string
-            return (
-                <div className={`capitalize ${getStatusColor(status)}`}>
-                    {status}
-                </div>
-            )
-        },
-        filterFn: (row, id, value) => value.includes(row.getValue(id)),
-    },
-    {
         id: "actions",
         cell: ({ row }) => renderActionDropdown(row.original),
     },
