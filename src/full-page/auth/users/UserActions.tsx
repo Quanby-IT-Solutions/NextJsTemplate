@@ -1,25 +1,25 @@
 "use client";
 
 import * as React from "react";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
-import { User } from "@/src/utils/interfaces/user_management";
-import { Button } from "@/src/components/button/Button";
-import { MoreHorizontal, Clipboard, Eye, Edit, Trash } from "lucide-react";
-import { Avatar, AvatarFallback, AvatarImage } from "@/src/components/ui/Avatar";
-import { userSchema, UserFormData } from "@/src/schemas/userFormSchema";
+import { useForm } from "react-hook-form";
 import { Input } from "@/src/components/input/Input";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { Textarea } from "@/src/components/ui/textarea";
+import { Button } from "@/src/components/button/Button";
+import { User } from "@/src/utils/interfaces/user_management";
+import { MoreHorizontal, Clipboard, Eye, Edit, Trash } from "lucide-react";
+import { userSchema, UserFormData } from "@/src/schemas/userFormSchema";
+import { Avatar, AvatarFallback, AvatarImage } from "@/src/components/ui/Avatar";
 import {
     Form, FormControl, FormItem, FormLabel, FormMessage
 } from "@/src/components/form/Form";
 import {
-    DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger
-} from "@/src/components/ui/dropdown-menu";
-import {
     Dialog, DialogHeader, DialogTitle, DialogDescription, DialogContent, DialogFooter, DialogClose
 } from "@/src/components/ui/dialog";
+import {
+    DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger
+} from "@/src/components/ui/dropdown-menu";
 
 // Define dialog modes
 type DialogMode = "view" | "edit" | "delete" | null;
@@ -70,6 +70,21 @@ export function renderActionDropdown(user: User) {
         handleCloseDialog();
     };
 
+    const copyClipboard = () => {
+        navigator.clipboard.writeText(user.id)
+            .then(() => {
+                toast.success("ID copied to clipboard", {
+                    description: `Copied ${user.id} to clipboard`,
+                });
+            })
+            .catch((error) => {
+                console.error("Failed to copy ID to clipboard:", error);
+                toast.error("Failed to copy ID to clipboard", {
+                    description: "Please try again or copy manually",
+                });
+            });
+    }
+
     // Render dialog content based on mode
     const renderDialogContent = () => {
         switch (dialogMode) {
@@ -78,6 +93,9 @@ export function renderActionDropdown(user: User) {
                     <>
                         <DialogHeader>
                             <DialogTitle className="text-xl font-semibold">Viewing {user.first_name} {user.last_name}</DialogTitle>
+                            <DialogDescription>
+                                Here you can view the details of the selected user. This includes their name, email, phone number, and bio. You can also see their avatar if available.
+                            </DialogDescription>
                         </DialogHeader>
                         <DialogDescription className="mt-4">
                             <div className="flex items-center space-x-4 mb-4">
@@ -102,6 +120,9 @@ export function renderActionDropdown(user: User) {
                     <>
                         <DialogHeader>
                             <DialogTitle className="text-xl font-semibold">Edit User</DialogTitle>
+                            <DialogDescription>
+                                Fill out the form below to update the user's information.
+                            </DialogDescription>
                         </DialogHeader>
                         <DialogDescription className="space-y-4">
                             <Form {...formMethods}>
@@ -162,7 +183,7 @@ export function renderActionDropdown(user: User) {
                             <DialogTitle className="text-xl font-semibold">Delete User</DialogTitle>
                         </DialogHeader>
                         <DialogDescription className="mt-4">
-                            Are you sure you want to delete {user.first_name} {user.last_name}? This action cannot be undone.
+                            Are you sure you want to delete {user.first_name} {user.last_name}?
                         </DialogDescription>
                         <DialogFooter className="flex justify-between mt-4">
                             <Button variant="destructive" onClick={handleDeleteUser}>
@@ -191,7 +212,9 @@ export function renderActionDropdown(user: User) {
                 <DropdownMenuContent align="end">
                     <DropdownMenuLabel>Actions</DropdownMenuLabel>
                     <DropdownMenuItem
-                        onClick={() => navigator.clipboard.writeText(user.id)}
+                        onClick={
+                            () => copyClipboard()
+                        }
                     >
                         <Clipboard className="mr-2 h-4 w-4" />
                         Copy ID
