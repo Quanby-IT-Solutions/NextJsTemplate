@@ -1,42 +1,8 @@
 import React from 'react';
 import { Bar, BarChart, LineChart, Line, AreaChart, Area, PieChart, Pie, Cell, CartesianGrid, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import { Cat, Dog, Bird, Rabbit, LucideIcon } from 'lucide-react';
+import { Cat, Dog, Bird, Rabbit } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/src/components/card/Card';
-
-// Updated interface for bird activities
-interface BirdActivity {
-    sleeping: number;
-    eating: number;
-    playing: number;
-    grooming: number;
-    flying: number;
-}
-
-// Updated interface for other animal activities
-interface OtherAnimalActivity {
-    sleeping: number;
-    eating: number;
-    playing: number;
-    grooming: number;
-    running: number;
-}
-
-// Updated interface for monthly data
-interface MonthlyData {
-    month: string;
-    cat: OtherAnimalActivity;
-    dog: OtherAnimalActivity;
-    bird: BirdActivity;
-    rabbit: OtherAnimalActivity;
-}
-
-// Define the structure for chartConfig
-interface ChartConfig {
-    [key: string]: {
-        label: { label: string; icon: LucideIcon };
-        color: string;
-    };
-}
+import { ChartConfig, MonthlyData } from '@/src/utils/interfaces/animals_analytics';
 
 // Helper function to generate random data for different animals
 const generateRandomData = (): MonthlyData[] => {

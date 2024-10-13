@@ -1,7 +1,7 @@
 import { Button } from "@/src/components/button/Button";
 import { Card, CardHeader, CardTitle, CardContent } from "@/src/components/card/Card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/src/components/ui/Avatar";
-import { LucideBell, LucideMessageCircle, LucideAlertTriangle, LucideCalendar } from "lucide-react";
+import { LucideBell, LucideAlertTriangle, LucideCalendar } from "lucide-react";
 
 const Notifications = () => {
     // Dummy function to simulate clearing notifications
