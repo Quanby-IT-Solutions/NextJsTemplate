@@ -1,5 +1,5 @@
-import { Card, CardHeader, CardContent, CardTitle } from "@/src/components/card/Card";
-import { Button } from "@/src/components/button/Button";
+import { Card, CardHeader, CardContent, CardTitle } from "@/src/components/ui/card";
+import { Button } from "@/src/components/ui/button";
 import { LucidePrinter } from "lucide-react";
 
 const Reports = () => {

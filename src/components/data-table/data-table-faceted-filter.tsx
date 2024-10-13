@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Check, PlusCircle } from "lucide-react" // Importing Lucid icons
+import { Check, PlusCircle } from "lucide-react"
 import { Column } from "@tanstack/react-table"
 
 import {
@@ -18,8 +18,8 @@ import {
 } from "../ui/popover"
 import { Separator } from "../ui/separator"
 import { cn } from "@/src/utils/cn"
-import { Badge } from "../badge/Badge"
-import { Button } from "../button/Button"
+import { Badge } from "../ui/badge"
+import { Button } from "../ui/button";
 
 interface DataTableFacetedFilterProps<TData, TValue> {
     column?: Column<TData, TValue>

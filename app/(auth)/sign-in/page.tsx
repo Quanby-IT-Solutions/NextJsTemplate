@@ -1,4 +1,4 @@
-import { Message } from "@/src/components/form-message/FormMessage";
+import { Message } from "@/src/components/form-message/form-message";
 import AuthLogin from "@/src/full-page/auth/auth-login";
 
 export default function SignInPage({

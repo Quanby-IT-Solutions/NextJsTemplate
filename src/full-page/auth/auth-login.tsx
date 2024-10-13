@@ -3,12 +3,12 @@
 "use client";
 
 import { useState } from "react";
-import Header from "../../components/auth-login-registration/Header";
-import GuestSignIn from "../../components/auth-login-registration/GuestSignIn";
-import { Message } from "../../components/form-message/FormMessage";
+import GuestSignIn from "../../components/auth-login-registration/guest-sign-in";
+import { Message } from "../../components/form-message/form-message";
 import { StaticImageData } from "next/image";
-import AuthForm from "@/src/components/auth-login-registration/AuthForm";
+import AuthForm from "@/src/components/auth-login-registration/auth-form";
 import { Toaster } from "@/src/components/ui/sonner";
+import Header from "@/src/components/auth-login-registration/header";
 
 interface AuthLoginProps {
   searchParams: Message;

@@ -1,8 +1,8 @@
 "use client";
 
 import { useUser } from "@/src/utils/user/user-context";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/src/components/tabs/Tabs";
-import DashboardHeader from "@/src/components/dashboard/DashboardHeader";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/src/components/ui/tabs";
+import DashboardHeader from "@/src/components/auth-layout/dashboard-header";
 import Analytics from "./Analytics/Analytics";
 import Notifications from "./Notifications";
 import OverviewCardSection from "./OverviewCardSection";

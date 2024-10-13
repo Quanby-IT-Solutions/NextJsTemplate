@@ -4,12 +4,11 @@ import React from "react"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
-import { AvatarUpload } from "./AvatarUpload"
 import { PersonalInfoForm } from "./PersonalInfoForm"
 import { AddressInfoForm } from "./AddressInfoForm"
-import { Button } from "../button/Button"
-import { Form } from "../form/Form"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "../tabs/Tabs"
+import { Button } from "../ui/button";
+import { Form } from "../ui/form"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs"
 
 // Form validation schema using zod
 const profileFormSchema = z.object({

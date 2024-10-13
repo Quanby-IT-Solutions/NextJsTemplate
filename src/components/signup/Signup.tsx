@@ -3,15 +3,15 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
-import { Input } from "@/src/components/input/Input";
 import { SubmitButton } from "@/src/components/submit-button/SubmitButton";
 import { signUpAction } from "@/src/utils/actions";
 
 import {
   Message,
   FormMessage,
-} from "@/src/components/form-message/FormMessage";
+} from "@/src/components/form-message/form-message";
 import Link from "next/link";
+import { Input } from "../ui/input";
 
 export interface SignupProps {
   className?: string;

@@ -1,6 +1,6 @@
 "use client";
 
-import DashboardHeader from "@/src/components/dashboard/DashboardHeader";
+import DashboardHeader from "@/src/components/auth-layout/dashboard-header";
 import PaymentTable from "./PaymentTable";
 
 export const Payment: React.FC = () => {

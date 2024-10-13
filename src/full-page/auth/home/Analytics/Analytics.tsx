@@ -1,8 +1,8 @@
 import React from 'react';
 import { Bar, BarChart, LineChart, Line, AreaChart, Area, PieChart, Pie, Cell, CartesianGrid, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { Cat, Dog, Bird, Rabbit } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/src/components/card/Card';
 import { ChartConfig, MonthlyData } from '@/src/utils/interfaces/animals_analytics';
+import { Card, CardContent, CardHeader, CardTitle } from '@/src/components/ui/card';
 
 // Helper function to generate random data for different animals
 const generateRandomData = (): MonthlyData[] => {

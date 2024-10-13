@@ -1,5 +1,5 @@
 import React from "react";
-import { Badge } from "../badge/Badge";
+import { Badge } from "../ui/badge";
 
 export const WarningMessage: React.FC = () => (
   <Badge variant={"outline"} className="font-normal">

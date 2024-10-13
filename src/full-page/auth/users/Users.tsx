@@ -1,6 +1,6 @@
 "use client";
 
-import DashboardHeader from "@/src/components/dashboard/DashboardHeader";
+import DashboardHeader from "@/src/components/auth-layout/dashboard-header";
 import UsersTable from "./UserTable";
 
 export const Users: React.FC = () => {

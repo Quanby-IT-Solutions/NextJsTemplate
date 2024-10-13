@@ -1,9 +1,8 @@
 import { ColumnDef } from "@tanstack/react-table"
-import { Checkbox } from "@/src/components/checkbox/Checkbox"
+import { Checkbox } from "@/src/components/ui/checkbox"
 import { DataTableColumnHeader } from "@/src/components/data-table/data-table-header"
 import { User } from "@/src/utils/interfaces/user_management"
 import { renderActionDropdown } from "./UserActions"
-import { getStatusColor } from "./UserHelpers"
 
 export const columns: ColumnDef<User>[] = [
     {

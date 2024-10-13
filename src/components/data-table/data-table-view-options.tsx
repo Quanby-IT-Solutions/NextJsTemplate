@@ -2,7 +2,7 @@
 "use client"
 
 import { DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/src/components/ui/dropdown-menu"
-import { Button } from "@/src/components/button/Button"
+import { Button } from "../ui/button";
 import { Settings2 } from "lucide-react"
 import { Table } from "@tanstack/react-table"
 

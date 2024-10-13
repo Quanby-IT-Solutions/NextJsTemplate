@@ -1,6 +1,6 @@
-import { Button } from "@/src/components/button/Button";
-import { Card, CardHeader, CardTitle, CardContent } from "@/src/components/card/Card";
-import { Avatar, AvatarFallback, AvatarImage } from "@/src/components/ui/Avatar";
+import { Button } from "@/src/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from '@/src/components/ui/card';
+import { Avatar, AvatarFallback, AvatarImage } from "@/src/components/ui/avatar";
 import { LucideBell, LucideAlertTriangle, LucideCalendar } from "lucide-react";
 
 const Notifications = () => {

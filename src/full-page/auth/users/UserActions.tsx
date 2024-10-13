@@ -3,17 +3,17 @@
 import * as React from "react";
 import { toast } from "sonner";
 import { useForm } from "react-hook-form";
-import { Input } from "@/src/components/input/Input";
+import { Input } from "@/src/components/ui/input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Textarea } from "@/src/components/ui/textarea";
-import { Button } from "@/src/components/button/Button";
+import { Button } from "@/src/components/ui/button";
 import { User } from "@/src/utils/interfaces/user_management";
 import { MoreHorizontal, Clipboard, Eye, Edit, Trash } from "lucide-react";
 import { userSchema, UserFormData } from "@/src/schemas/userFormSchema";
-import { Avatar, AvatarFallback, AvatarImage } from "@/src/components/ui/Avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "@/src/components/ui/avatar";
 import {
     Form, FormControl, FormItem, FormLabel, FormMessage
-} from "@/src/components/form/Form";
+} from "@/src/components/ui/form";
 import {
     Dialog, DialogHeader, DialogTitle, DialogDescription, DialogContent, DialogFooter, DialogClose
 } from "@/src/components/ui/dialog";

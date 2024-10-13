@@ -1,6 +1,7 @@
-import { Card, CardContent } from "../card/Card";
-import { FormField, FormItem, FormLabel, FormControl } from "../form/Form";
-import { Input } from "../input/Input";
+
+import { Input } from "../ui/input";
+import { Card, CardContent } from "../ui/card";
+import { FormField, FormItem, FormLabel, FormControl } from "../ui/form";
 
 export const AddressInfoForm: React.FC<{ form: any }> = ({ form }) => {
     return (

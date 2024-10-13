@@ -1,11 +1,11 @@
 "use client"
 
 import React, { useEffect, useState } from "react"
-import { Payment } from "../../../utils/interfaces/dummy_payments"
 import { DataTable, FilterableColumn } from "@/src/components/data-table/data-table"
 import { Toaster } from "@/src/components/ui/sonner"
 import { columns } from "./PaymentColumns"
 import { Spinner } from "@/src/components/spinner/Spinner"
+import { Payment } from "@/src/utils/interfaces/dummy_payments"
 
 // Helper function to generate random email
 function generateRandomEmail(): string {
