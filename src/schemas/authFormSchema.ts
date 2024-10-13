@@ -1,11 +1,16 @@
 import { z } from "zod";
 
-const emailSchema = z.string().email({ message: "Invalid email address." });
+// Username schema to enforce no spaces
+const usernameSchema = z
+    .string()
+    .min(1, { message: "Username is required." })
+    .regex(/^[^\s]+$/, "Username must not contain spaces.");
+
 const passwordSchema = z.string().min(8, { message: "Password must be at least 8 characters." });
 
 export const signUpSchema = z.object({
     fullName: z.string().min(2, { message: "Full Name must be at least 2 characters." }),
-    email: emailSchema,
+    username: usernameSchema,
     password: passwordSchema,
     confirmPassword: z.string(),
     formType: z.literal("signUp"),
@@ -15,7 +20,7 @@ export const signUpSchema = z.object({
 });
 
 export const signInSchema = z.object({
-    email: emailSchema,
+    email: z.string().email({ message: "Invalid email address." }),
     password: z.string().min(1, { message: "Password is required" }),
     formType: z.literal("signIn"),
 });
