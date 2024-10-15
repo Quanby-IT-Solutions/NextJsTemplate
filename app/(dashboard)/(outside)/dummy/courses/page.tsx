@@ -1,12 +1,7 @@
-import { Message } from "@/src/components/form-message/form-message";
 import AuthLayout from "@/src/components/auth-layout/auth-layout";
 import { DummyUsers } from "@/src/full-page/auth/users/dummy/DummyUsers";
 
-export default function DummyCoursePage({
-  searchParams,
-}: {
-  searchParams: Message;
-}) {
+export default function DummyCoursePage() {
   return (
     <AuthLayout>
       <DummyUsers />

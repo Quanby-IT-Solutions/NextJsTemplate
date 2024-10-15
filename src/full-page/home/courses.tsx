@@ -1,6 +1,7 @@
 import { Badge } from '@/src/components/ui/badge';
 import { Button } from "@/src/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/src/components/ui/card';
+import { Course } from '@/src/utils/interfaces/dummy_courses';
 import { Avatar, AvatarFallback, AvatarImage } from '@radix-ui/react-avatar';
 
 async function getCourses(): Promise<Course[]> {

@@ -14,6 +14,7 @@ export async function GET() {
     // Return the courses data from the JSON
     return NextResponse.json(jsonData.courses);
   } catch (error) {
+    console.error('Error reading courses data:', error);
     return NextResponse.json({ message: 'Error reading courses data' }, { status: 500 });
   }
 }

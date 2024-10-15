@@ -2,7 +2,7 @@ import { ColumnDef } from "@tanstack/react-table"
 import { Checkbox } from "@/src/components/ui/checkbox"
 import { DataTableColumnHeader } from "@/src/components/data-table/data-table-header"
 import { User } from "@/src/utils/interfaces/user_management"
-import { renderActionDropdown } from "./UserActions"
+import { UserActions } from "./UserActions"
 
 export const columns: ColumnDef<User>[] = [
     {
@@ -51,6 +51,6 @@ export const columns: ColumnDef<User>[] = [
     },
     {
         id: "actions",
-        cell: ({ row }) => renderActionDropdown(row.original),
+        cell: ({ row }) => <UserActions user={row.original} />,
     },
 ]

@@ -3,9 +3,9 @@ import * as CheckboxPrimitive from "@radix-ui/react-checkbox";
 import { Check } from "lucide-react";
 import { cn } from "@/src/utils/cn";
 
-export interface CheckboxProps {
+export interface CheckboxProps
+  extends React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root> {
   className?: string;
-  [key: string]: any;
 }
 
 export const Checkbox: React.FC<CheckboxProps> = ({

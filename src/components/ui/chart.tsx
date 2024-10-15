@@ -69,7 +69,7 @@ ChartContainer.displayName = "Chart"
 
 const ChartStyle = ({ id, config }: { id: string; config: ChartConfig }) => {
   const colorConfig = Object.entries(config).filter(
-    ([_, config]) => config.theme || config.color
+    ([, config]) => config.theme || config.color // mar: dati ganto yan [_, config], ig remove lang para wala ng error pag ig compile
   )
 
   if (!colorConfig.length) {

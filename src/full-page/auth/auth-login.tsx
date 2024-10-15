@@ -3,12 +3,14 @@
 "use client";
 
 import { useState } from "react";
-import GuestSignIn from "../../components/auth-login-registration/guest-sign-in";
 import { Message } from "../../components/form-message/form-message";
 import { StaticImageData } from "next/image";
-import AuthForm from "@/src/components/auth-login-registration/auth-form";
 import { Toaster } from "@/src/components/ui/sonner";
+
+import GuestSignIn from "../../components/auth-login-registration/guest-sign-in";
+import AuthForm from "@/src/components/auth-login-registration/auth-form";
 import Header from "@/src/components/auth-login-registration/header";
+import Image from "next/image";
 
 interface AuthLoginProps {
   searchParams: Message;
@@ -22,7 +24,6 @@ interface AuthLoginProps {
 }
 
 const AuthLogin: React.FC<AuthLoginProps> = ({
-  searchParams,
   logoSrc,
   signInBackgroundImageSrc,
   signUpBackgroundImageSrc,
@@ -40,7 +41,7 @@ const AuthLogin: React.FC<AuthLoginProps> = ({
     <div className="flex w-full min-h-screen">
       {/* Dynamic Background for Sign In/Sign Up */}
       <div className="hidden md:flex flex-1">
-        <img
+        <Image
           loading="lazy"
           src={
             formType === "signIn"
@@ -49,6 +50,9 @@ const AuthLogin: React.FC<AuthLoginProps> = ({
           }
           alt="Background image"
           className="object-cover w-full h-full"
+          unoptimized={true}
+          height={100}
+          width={100}
         />
       </div>
 
