@@ -1,7 +1,7 @@
 "use client";
 
+import Image from "next/image";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/src/components/ui/accordion";
-import * as React from "react";
 
 interface FAQItem {
     question: string;
@@ -34,10 +34,12 @@ const FAQSection: React.FC = () => {
                 <div className="flex flex-col justify-center items-center gap-10 lg:flex-row lg:justify-between">
                     {/* Image Section */}
                     <div className="w-full lg:w-1/2">
-                        <img
+                        <Image
                             src="https://steamuserimages-a.akamaihd.net/ugc/2279446315728244025/095BAC0DCBE9C8FD68136CAC66901AA2A0170DDF/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false"
                             alt="FAQ Section"
                             className="w-full rounded-xl object-cover"
+                            height={100}
+                            width={100}
                         />
                     </div>
 

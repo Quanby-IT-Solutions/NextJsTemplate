@@ -24,7 +24,8 @@ import {
 // Define dialog modes
 type DialogMode = "view" | "edit" | "delete" | null;
 
-export function renderActionDropdown(user: User) {
+// Convert this into a functional component
+export function UserActions({ user }: { user: User }) {
     const [isOpen, setIsOpen] = React.useState(false);
     const [dialogMode, setDialogMode] = React.useState<DialogMode>(null);
 
@@ -121,7 +122,7 @@ export function renderActionDropdown(user: User) {
                         <DialogHeader>
                             <DialogTitle className="text-xl font-semibold">Edit User</DialogTitle>
                             <DialogDescription>
-                                Fill out the form below to update the user's information.
+                                Fill out the form below to update the user&apos;s information.
                             </DialogDescription>
                         </DialogHeader>
                         <DialogDescription className="space-y-4">
@@ -212,9 +213,7 @@ export function renderActionDropdown(user: User) {
                 <DropdownMenuContent align="end">
                     <DropdownMenuLabel>Actions</DropdownMenuLabel>
                     <DropdownMenuItem
-                        onClick={
-                            () => copyClipboard()
-                        }
+                        onClick={copyClipboard}
                     >
                         <Clipboard className="mr-2 h-4 w-4" />
                         Copy ID

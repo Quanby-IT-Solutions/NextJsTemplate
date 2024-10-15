@@ -1,5 +1,4 @@
-// app/components/data-table/data-table-filter.tsx
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Table } from '@tanstack/react-table'
 import { FilterableColumn } from './data-table'
 import { CalendarIcon, SortAsc, CheckIcon } from 'lucide-react'
@@ -13,16 +12,23 @@ import { Checkbox } from '@radix-ui/react-checkbox'
 import { Input } from '../ui/input'
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '../ui/command'
 
-interface DataTableFilterProps<TData, TValue> {
+interface DataTableFilterProps<TData> {
     column: FilterableColumn
     table: Table<TData>
 }
 
-export function DataTableFilter<TData, TValue>({
+export function DataTableFilter<TData>({
     column,
     table,
-}: DataTableFilterProps<TData, TValue>) {
+}: DataTableFilterProps<TData>) {
     const columnFilter = table.getColumn(column.id)
+
+    // Hooks need to be called at the top level of the component, outside any conditions.
+    const [open, setOpen] = useState(false)
+    const [selectedValue, setSelectedValue] = useState<string | undefined>(
+        (columnFilter?.getFilterValue() as string) ?? ""
+    )
+    const [minValue, maxValue] = (columnFilter?.getFilterValue() as [number, number]) || [0, 100]
 
     if (!columnFilter) {
         return null
@@ -61,11 +67,6 @@ export function DataTableFilter<TData, TValue>({
                 </Select>
             )
         case "combobox":
-            const [open, setOpen] = useState(false)
-            const [selectedValue, setSelectedValue] = useState<string | undefined>(
-                (columnFilter.getFilterValue() as string) ?? ""
-            )
-
             return (
                 <Popover open={open} onOpenChange={setOpen}>
                     <PopoverTrigger asChild>
@@ -137,14 +138,11 @@ export function DataTableFilter<TData, TValue>({
                 </div>
             )
         case "number":
-            const [min, max] = column.range || [0, 100]
-            const [minValue, maxValue] = (columnFilter.getFilterValue() as [number, number]) || [min, max]
-
             return (
                 <div className="w-[200px] px-2">
                     <Slider
-                        min={min}
-                        max={max}
+                        min={0}
+                        max={100}
                         step={1}
                         value={[minValue, maxValue]}
                         onValueChange={(value: [number, number]) => handleFilterChange(value)}

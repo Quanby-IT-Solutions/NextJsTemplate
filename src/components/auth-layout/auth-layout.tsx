@@ -1,7 +1,7 @@
 "use client"
 
 import { UserProvider } from "@/src/utils/user/user-context";
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode, } from "react";
 import { AppSidebar } from "./app-sidebar";
 import { SidebarLayout, SidebarTrigger } from "../ui/sidebar";
 

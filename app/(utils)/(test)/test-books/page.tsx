@@ -1,7 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { Book } from "@/src/utils/interfaces/dummy_books";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function BooksPage() {
   const [books, setBooks] = useState<Book[]>([]);
@@ -73,7 +75,7 @@ export default function BooksPage() {
           {books.map((book) => (
             <li key={book.id} className="mb-4">
               <Link href={`/books/${book.id}`} className="flex items-center">
-                <img
+                <Image
                   src={book.cover_image}
                   alt={book.title}
                   className="w-20 h-28 object-cover mr-4"

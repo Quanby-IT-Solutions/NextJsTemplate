@@ -100,7 +100,7 @@ const About: React.FC = () => {
                     The Foundation
                 </h2>
                 <p className="text-base">
-                    Established in 2024, this template combines Next.js' flexibility with Supabase's realtime capabilities and PostgreSQL-powered backend, making it the perfect foundation for any web development project.
+                    Established in 2024, this template combines Next.js&apos; flexibility with Supabase&apos;s realtime capabilities and PostgreSQL-powered backend, making it the perfect foundation for any web development project.
                 </p>
             </motion.div>
         </section>

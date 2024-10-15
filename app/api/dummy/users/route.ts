@@ -14,6 +14,7 @@ export async function GET() {
     // Return the users data from the JSON
     return NextResponse.json(jsonData.users);
   } catch (error) {
+    console.error('Error reading users data:', error);
     return NextResponse.json({ message: 'Error reading users data' }, { status: 500 });
   }
 }

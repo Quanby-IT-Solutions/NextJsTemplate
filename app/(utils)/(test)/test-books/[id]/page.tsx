@@ -1,5 +1,6 @@
 // app/(test)/books/[id]/page.tsx
 import { fetchBookById } from "@/app/api/dummy/books/utils";
+import Image from "next/image";
 
 interface BookDetailsPageProps {
   params: {
@@ -20,7 +21,7 @@ export default async function BookDetailsPage({
     <div className="">
       <h1 className="text-2xl font-bold mb-4">{book.title}</h1>
       <div className="flex">
-        <img
+        <Image
           src={book.cover_image}
           alt={book.title}
           className="w-40 h-56 object-cover mr-4"

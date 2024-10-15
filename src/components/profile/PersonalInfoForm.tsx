@@ -1,18 +1,30 @@
 import { Card, CardContent } from "../ui/card";
 import { FormField, FormItem, FormLabel, FormControl } from "../ui/form";
 import { Input } from "../ui/input";
-import { AvatarUpload } from "./AvatarUpload";
+import { UseFormReturn } from "react-hook-form";
 
-export const PersonalInfoForm: React.FC<{ form: any }> = ({ form }) => {
+// Define the structure of your form values for personal info
+interface PersonalInfoFormValues {
+    name: string;
+    username: string;
+    email: string;
+    password: string;
+}
+
+interface PersonalInfoFormProps {
+    form: UseFormReturn<PersonalInfoFormValues>;
+}
+
+export const PersonalInfoForm: React.FC<PersonalInfoFormProps> = ({ form }) => {
     return (
         <Card className="w-full p-6">
             <CardContent>
                 <div className="flex flex-col md:flex-row gap-10 md:items-start">
                     {/* Left column: Form fields */}
                     <div className="flex flex-col gap-6 w-full max-w-lg">
-                        {/* Name Field */}
                         <FormField
                             name="name"
+                            control={form.control}
                             render={({ field }) => (
                                 <FormItem>
                                     <FormLabel>Your Name</FormLabel>
@@ -23,9 +35,9 @@ export const PersonalInfoForm: React.FC<{ form: any }> = ({ form }) => {
                             )}
                         />
 
-                        {/* Username Field */}
                         <FormField
                             name="username"
+                            control={form.control}
                             render={({ field }) => (
                                 <FormItem>
                                     <FormLabel>Username</FormLabel>
@@ -36,9 +48,9 @@ export const PersonalInfoForm: React.FC<{ form: any }> = ({ form }) => {
                             )}
                         />
 
-                        {/* Email Field */}
                         <FormField
                             name="email"
+                            control={form.control}
                             render={({ field }) => (
                                 <FormItem>
                                     <FormLabel>Email</FormLabel>
@@ -49,9 +61,9 @@ export const PersonalInfoForm: React.FC<{ form: any }> = ({ form }) => {
                             )}
                         />
 
-                        {/* Password Field */}
                         <FormField
                             name="password"
+                            control={form.control}
                             render={({ field }) => (
                                 <FormItem>
                                     <FormLabel>Password</FormLabel>
@@ -61,11 +73,6 @@ export const PersonalInfoForm: React.FC<{ form: any }> = ({ form }) => {
                                 </FormItem>
                             )}
                         />
-                    </div>
-
-                    {/* Right column: Avatar Upload */}
-                    <div className="flex flex-col items-center justify-center md:justify-start space-y-4">
-                        <AvatarUpload />
                     </div>
                 </div>
             </CardContent>
